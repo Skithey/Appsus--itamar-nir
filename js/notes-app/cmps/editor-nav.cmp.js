@@ -7,7 +7,7 @@ export default {
     <input type="color">
     <button @click="addImg">Img</button>
     <button @click="removeNote">Delete</button>
-
+ 
     </section>
     `,
     props: ['note'],
@@ -25,8 +25,10 @@ export default {
         removeNote() {
             console.log('sending note');
             // console.log(this.note);
-            notesService.removeNote(this.note)
-            this.$emit('getImg')
+            let newNoteList = notesService.removeNote(this.note)
+
+
+            this.$emit('getNewNotes', newNoteList)
         }
     }
 

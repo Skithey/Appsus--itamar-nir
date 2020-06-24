@@ -4,18 +4,15 @@ export default {
     template: `
 <section class="email-container" v-if="email">
 <div @click="isRead = !isRead" v-bind:class="{read:isRead}">
-<ul class="email-details">
+<ul class="email-details flex column space-between no-list">
 <li class="email-subject">
-{{email.subject}}
+{{email.subject}}     {{email.sentAt}}
 </li>
 <li class="email-body">
 {{email.body}}
 </li>
 <li class="email-desc">
 {{email.desc}}
-</li>
-<li class="email-sentAt">
-{{email.sentAt}}
 </li>
 </ul>
 </div>
@@ -35,6 +32,5 @@ export default {
             .then(email => {
                 this.email = email;
             })
-
-    }
+    },
 }

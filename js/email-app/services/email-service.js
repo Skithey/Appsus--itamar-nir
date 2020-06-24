@@ -10,7 +10,7 @@ var recivedMin = new Date().getMinutes();
 var recivedTime = recivedHour + ':' + recivedMin
 var gEmails = [
     { id: utilsService.getRandomId(), subject: 'Zoom', body: 'Pick up!', desc: 'Zoom is a very nice app', isRead: false, sentAt: recivedTime },
-    { id: utilsService.getRandomId(), subject: 'shishlik?', body: 'Pickeda up!', desc: 'shishlik is a very nice food', isRead: true, sentAt: recivedTime }
+    { id: utilsService.getRandomId(), subject: 'shishlik?', body: 'Pickeda up!', desc: 'shishlik is a very nice food', isRead: true, sentAt: recivedTime },
 ]
 const EMAIL_INFO = 'emails'
 
@@ -30,7 +30,6 @@ function getById(emailId) {
             return emails.find(email => {
                 return email.id === emailId
             })
-
         })
 }
 

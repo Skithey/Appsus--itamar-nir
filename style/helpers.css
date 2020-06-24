@@ -38,3 +38,14 @@
 .grid {
     display: grid;
 }
+
+
+/* ETC */
+
+.no-list {
+    list-style: none;
+}
+
+.btn {
+    cursor: pointer;
+}

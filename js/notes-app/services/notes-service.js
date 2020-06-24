@@ -1,7 +1,9 @@
 import { utilsService } from '../../utils/utils-service.js'
 
 export const notesService = {
-    getNotes
+    getNotes,
+    addNote,
+    getNoteForm
 }
 
 
@@ -52,5 +54,27 @@ function getNotes() {
     } else {
         const notes = utilsService.loadFromStorage('NOTES')
         return Promise.resolve(notes)
+    }
+}
+
+function addNote(note, title, txt) {
+    (title) ? note.info.title = title: note.info.title = '';
+    (txt) ? note.info.txt = txt: note.info.txt = '';
+
+    gNotes.unshift(note)
+    utilsService.saveToStorage('NOTES', gNotes)
+    console.log('new note list: ', gNotes, 'new note added: ', note)
+        // return Promise.resolve(gNotes)
+}
+
+function getNoteForm() {
+    return {
+        id: '',
+        type: "NoteText",
+        isPinned: true,
+        info: {
+            title: '',
+            txt: ''
+        }
     }
 }

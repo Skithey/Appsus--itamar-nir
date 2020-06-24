@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @import "./email.main-css/email-list.css";
+=======
+@import './notes-css/notes-preview.css';
+>>>>>>> ab6bcae8cdd67c5605276bdf2efec85a853b47a3
 * {
     box-sizing: border-box;
 }

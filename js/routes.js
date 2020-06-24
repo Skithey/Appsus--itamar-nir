@@ -1,6 +1,6 @@
 import emailApp from './email-app/Pages/email-app.js'
 import notesApp from './notes-app/Pages/notes-app.js'
-import booksApp from './books-app/Pages/book-app.js'
+import emailDetails from './email-app/Pages/email.details.cmp.js'
 
 
 const myRoutes = [{
@@ -12,8 +12,8 @@ const myRoutes = [{
         component: notesApp
     },
     {
-        path: '/books',
-        component: booksApp
+        path: '/email/:emailId',
+        component: emailDetails
     }
 ]
 export const myRouter = new VueRouter({ routes: myRoutes })

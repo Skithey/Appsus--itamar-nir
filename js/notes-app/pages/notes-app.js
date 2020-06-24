@@ -3,7 +3,7 @@ import NoteImg from '../cmps/note-img.cmp.js'
 import NoteTodos from '../cmps/note-todos.cmps.js'
 import editorNav from '../cmps/editor-nav.cmp.js'
 import { notesService } from '../services/notes-service.js'
-import { utilsService } from '../../utils/utils-service.js'
+
 
 export default {
     template: `
@@ -21,7 +21,7 @@ export default {
     </form>
    <section class="notes-container grid">
     <div  v-for=" note in notes" :key="note.id">
-        <component  :is="note.type" class="note"  :info="note.info"></component>
+        <component  :is="note.type" class="note" :note="note" :info="note.info"></component>
     </div>
     </section>
 
@@ -33,12 +33,10 @@ export default {
             titleVal: '',
             txtVal: '',
             notes: []
-
         }
     },
     components: {
         notesService,
-        utilsService,
         NoteText,
         NoteImg,
         NoteTodos,
@@ -46,16 +44,16 @@ export default {
 
     },
     created() {
-
         notesService.getNotes()
-            .then(notes => {
-                this.notes = notes
-            })
+            .then(notes => this.notes = notes)
     },
     methods: {
         addNote() {
-            notesService.addNote(this.noteToSave, this.titleVal, this.txtVal)
-
+            this.noteToSave.title = this.titleVal
+            this.noteToSave.info.txt = this.txtVal
+            this.notes.unshift(this.noteToSave)
+            notesService.addNote(this.noteToSave)
+            this.noteToSave = notesService.getNoteForm()
             this.titleVal = ''
             this.txtVal = ''
         }

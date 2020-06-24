@@ -1,3 +1,6 @@
+import { notesService } from '../services/notes-service.js'
+
+
 export default {
     template: `
     <section>
@@ -7,6 +10,7 @@ export default {
 
     </section>
     `,
+    props: ['note'],
     data() {
         return {
             url: ''
@@ -20,7 +24,8 @@ export default {
         },
         removeNote() {
             console.log('sending note');
-
+            // console.log(this.note);
+            notesService.removeNote(this.note)
             this.$emit('getImg')
         }
     }

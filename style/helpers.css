@@ -49,3 +49,7 @@
 .btn {
     cursor: pointer;
 }
+
+.visible {
+    display: none;
+}

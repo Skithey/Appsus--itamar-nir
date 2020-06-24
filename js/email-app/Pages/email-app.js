@@ -4,11 +4,16 @@ import emailsList from '../cmps/emails-list.cmp.js';
 import emailDetails from '../Pages/email.details.cmp.js';
 import emailStatus from '../cmps/email-status.cmp.js';
 import emailFilter from '../cmps/email-filter.cmp.js';
+import addEmail from '../cmps/email-addEmail.cmp.js';
 
 export default {
     template: `
     <div class="email-container">
     <h2> email-app</h2>
+    <button @click="isVisible = !isVisible">+ Compose</button>
+    <div  class="compose" :class="{visible:isVisible}">
+    <add-email @sendEmail="addEmail"></add-email>
+    </div>
     <email-filter @filter="setFilter"></email-filter>
     <email-details @close="setCurrEmail" v-if="currEmail" :email="currEmail" ></email-details>
     <emails-list  @emailSelected="setCurrEmail" v-else v-bind:emails="emailsToShow" ></emails-list>
@@ -18,7 +23,8 @@ export default {
         return {
             emails: [],
             currEmail: null,
-            filterBy: null
+            filterBy: null,
+            isVisible: false
         }
     },
     methods: {
@@ -27,6 +33,11 @@ export default {
         },
         setFilter(filterBy) {
             this.filterBy = filterBy
+        },
+        addEmail(to, subject, desc) {
+            console.log(to, subject, desc);
+
+
         }
     },
     created() {
@@ -35,17 +46,18 @@ export default {
                 this.emails = emails
             })
     },
+    // email.desc.toLowerCase().includes(filterBy.byTxt.toLowerCase()
     computed: {
         emailsToShow() {
             const filterBy = this.filterBy;
             if (!filterBy) return this.emails
             var filteredEmails = this.emails.filter((email) => {
                 const isRead = email.isRead
-                if (email.desc.toLowerCase().includes(filterBy.byTxt.toLowerCase()) &&
-                    isRead)
-                    return email
+                if (isRead) return email
 
             })
+            console.log(filteredEmails);
+
             return filteredEmails
         },
         emailId() {
@@ -56,7 +68,8 @@ export default {
         emailsList,
         emailDetails,
         emailStatus,
-        emailFilter
+        emailFilter,
+        addEmail
     }
 
 }

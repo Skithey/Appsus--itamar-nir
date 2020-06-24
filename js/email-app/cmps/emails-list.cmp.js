@@ -5,7 +5,7 @@ export default {
     props: ['emails'],
     template: `
     <ul  class="emails-list flex column no-list">
-    <email-preview  @click.native="selectEmail(email)"  v-for="email in emails" :email="email"  :key="email.id"></email-preview>
+    <email-preview   @click.native="selectEmail(email)"  v-for="email in emails" :email="email"  :key="email.id"></email-preview>
     </ul>`,
 
     // :currencyCode="book.listPrice.currencyCode"
@@ -20,6 +20,7 @@ export default {
     methods: {
         selectEmail(email) {
             this.$emit('emailSelected', email)
-        }
+        },
+
     }
 }

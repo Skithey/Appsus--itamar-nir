@@ -1,16 +1,18 @@
 export default {
     props: ['email'],
-    template: ` 
+    template: `
+    <router-link :to='"/email/" + email.id'> 
     <li class="">
-    <span class="email-subject" @click="isRead = !isRead" v-bind:class="{read:isRead}">   {{email.subject}} </span>
+    <span class="email-subject" > {{email.subject}} </span>
     </li>    
+    </router-link>
     `,
     // {{emailSubject}}
-    data() {
-        return {
-            isRead: false
-        }
-    },
+    // data() {
+    //     return {
+    //         isRead: false
+    //     }
+    // },
     computed: {
         // emailSubject() {
         //     if (this.isRead) {

@@ -5,9 +5,9 @@ export default {
     props: ['emails'],
     template: `
     <ul  class="emails-list">
-    <email-preview  v-for="email in emails" :email="email"  :key="email.id"></email-preview>
+    <email-preview  @click.native="selectEmail(email)"  v-for="email in emails" :email="email"  :key="email.id"></email-preview>
     </ul>`,
-    // @click.native="selectBook(book)"
+
     // :currencyCode="book.listPrice.currencyCode"
     // methods: {
     //     selectBook(book) {
@@ -16,5 +16,10 @@ export default {
     // },
     components: {
         emailPreview
+    },
+    methods: {
+        selectEmail(email) {
+            this.$emit('emailSelected', email)
+        }
     }
 }

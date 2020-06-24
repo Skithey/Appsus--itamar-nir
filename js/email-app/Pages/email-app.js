@@ -8,31 +8,34 @@ export default {
     template: `
     <div class="email-container">
     <h2> email-app</h2>
-    <emails-list v-bind:emails="emailsToShow" ></emails-list>
-    <router-link to="/email/details">
-    <email-details></email-details>
-    </router-link>
-     </div>`,
+    <email-details @close="setCurrEmail" v-if="currEmail" :email="currEmail" ></email-details>
+    <emails-list  @emailSelected="setCurrEmail" v-else v-bind:emails="emailsToShow" ></emails-list>
+
+    </div>`,
     data() {
         return {
-            emails: []
+            emails: [],
+            currEmail: null
         }
     },
-    created() {
-        if (!localStorage.emails || !localStorage.emails.length) {
-            emailsService.getEmails()
-                .then(emails => {
-                    this.emails = emails
-                    console.log(this.emails);
-                })
-        } else {
-            this.emails = utilsService.loadFromStorage('emails')
-            console.log(this.emails);
+    methods: {
+        setCurrEmail(email) {
+            this.currEmail = email
         }
+
+    },
+    created() {
+        emailsService.getEmails()
+            .then(emails => {
+                this.emails = emails
+            })
     },
     computed: {
         emailsToShow() {
             return this.emails
+        },
+        emailId() {
+            return this.$route.params.emailId
         }
     },
     components: {

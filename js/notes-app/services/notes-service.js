@@ -39,11 +39,18 @@ var gNotes = [{
                 }
             ]
         }
-    }
+    },
+
 ];
 
 
 function getNotes() {
-    utilsService.saveToStorage('NOTES', gNotes)
-    return Promise.resolve(gNotes)
+    if (!localStorage.NOTES || !localStorage.NOTES.length) {
+        utilsService.saveToStorage('NOTES', gNotes)
+        return Promise.resolve(gNotes)
+
+    } else {
+        const notes = utilsService.loadFromStorage('NOTES')
+        return Promise.resolve(notes)
+    }
 }

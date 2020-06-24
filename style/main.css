@@ -1,5 +1,6 @@
 @import "./email.main-css/email-list.css";
 @import './notes-css/notes-preview.css';
+@import './notes-css/notes-app.css';
 @import './helpers.css';
 * {
     box-sizing: border-box;

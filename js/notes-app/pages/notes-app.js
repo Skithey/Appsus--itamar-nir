@@ -9,10 +9,11 @@ export default {
     <div>
     <h2>Notes-app</h2>
     <p> working on it</p>
-   
-    <div class="notes-container grid" v-for=" note in notes" :key="note.id">
+   <section class="notes-container grid">
+    <div  v-for=" note in notes" :key="note.id">
         <component  :is="note.type" class="note"  :info="note.info"></component>
     </div>
+    </section>
 
     </div>
     `,
@@ -30,12 +31,10 @@ export default {
         NoteTodos
     },
     created() {
-        if (!localStorage.NOTES || !localStorage.NOTES.length)
-            notesService.getNotes()
+
+        notesService.getNotes()
             .then(notes => {
                 this.notes = notes
-
             })
-        else this.notes = utilsService.loadFromStorage('NOTES')
     }
 }

@@ -25,7 +25,10 @@ export default {
 
     methods: {
         deleteEmail(emailId) {
+            this.$emit('deleteEmail', emailId)
             emailsService.removeEmail(emailId)
+            var deleteIdx = this.emails.findIndex(email => email.id === emailId);
+            this.emails.splice()
             emailsService.getEmails()
                 .then(emails => {
                     this.emails = emails

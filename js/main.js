@@ -7,7 +7,7 @@ new Vue({
     <div>
     <h1> Hello Apsus</h1>
     <router-link to="/email"> Email </router-link>
-
+    <router-link to="/notes"> Notes </router-link>
     <router-view/>
     </div>`
 })

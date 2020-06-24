@@ -1,8 +1,8 @@
 export default {
     template: `
     <div>
-    <p>sfdsafsdgf</p>
-    <h2> email</h2>
+    <h2> email-app</h2>
+    <p>working</p>
      </div>`
 
 }

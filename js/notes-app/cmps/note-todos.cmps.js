@@ -5,10 +5,14 @@ export default {
     <div class="note-todods">
     <ul>
     <li v-for=" todo in info.todos">
-    {{todo.txt}}
+    <h2 v-if="info.title"> 
+    {{info.title}}
+    </h2>
+    <p>{{todo.txt}}</p>
+
     </li>
-   
     </ul>
+    
     </div>`,
     props: ['info'],
 

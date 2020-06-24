@@ -10,7 +10,7 @@ export default {
     <h2>Notes-app</h2>
     <p> working on it</p>
    
-    <div class="grid" v-for=" note in notes" :key="note.id">
+    <div class="notes-container grid" v-for=" note in notes" :key="note.id">
         <component  :is="note.type" class="note"  :info="note.info"></component>
     </div>
 

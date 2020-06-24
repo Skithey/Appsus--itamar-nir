@@ -3,7 +3,8 @@ import { utilsService } from '../../utils/utils-service.js'
 export const notesService = {
     getNotes,
     addNote,
-    getNoteForm
+    getNoteForm,
+    removeNote
 }
 
 
@@ -53,23 +54,26 @@ function getNotes() {
 
     } else {
         const notes = utilsService.loadFromStorage('NOTES')
+        console.log(notes);
+
         return Promise.resolve(notes)
     }
 }
 
-function addNote(note, title, txt) {
-    (title) ? note.info.title = title: note.info.title = '';
-    (txt) ? note.info.txt = txt: note.info.txt = '';
+function addNote(note) {
+    console.log(note);
+
 
     gNotes.unshift(note)
     utilsService.saveToStorage('NOTES', gNotes)
-    console.log('new note list: ', gNotes, 'new note added: ', note)
-        // return Promise.resolve(gNotes)
+
+    // console.log('new note list: ', gNotes, 'new   note added: ', note)
+    // return Promise.resolve(gNotes)
 }
 
 function getNoteForm() {
     return {
-        id: '',
+        id: utilsService.getRandomId(),
         type: "NoteText",
         isPinned: true,
         info: {
@@ -77,4 +81,24 @@ function getNoteForm() {
             txt: ''
         }
     }
+}
+
+function removeNote(noteToRemove) {
+    getById(noteToRemove.id)
+        .then(note => {
+            console.log(note)
+
+        })
+
+}
+
+function getById(noteId) {
+    // console.log(noteId)
+    const note = gNotes.findIndex(note => {
+        console.log(note.id);
+
+        note.id === noteId
+    })
+
+    return Promise.resolve(note)
 }

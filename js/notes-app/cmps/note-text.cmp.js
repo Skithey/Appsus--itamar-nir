@@ -7,10 +7,10 @@ export default {
     {{info.title}}
     </h2>
     <textArea>{{info.txt}} </textArea>
-    <editor-nav></editor-nav>
+    <editor-nav :note="note"></editor-nav>
     </div>
     `,
-    props: ['info'],
+    props: ['info', 'note'],
 
     components: {
         editorNav

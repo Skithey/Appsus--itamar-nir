@@ -115,7 +115,6 @@ export default {
         ChangeTypeToImg() {
             this.type = 'NoteImg'
 
-
         },
         ChangeTypeToTodos() {
             this.type = 'NoteTodos'
@@ -125,6 +124,7 @@ export default {
             this.type = 'NoteText'
         },
         changeAddedBgc() {
+
             this.noteToSave.style.backgroundColor = this.bgcColor
         }
 

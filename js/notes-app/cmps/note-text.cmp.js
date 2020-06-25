@@ -6,7 +6,7 @@ export default {
     <h2 v-if="info.title"> 
     {{info.title}}
     </h2>    
-    <textArea class="text-area flex column " ref="textAreaObj" :value="value" @input="saveTxt" >{{info.txt}} </textArea>
+    <textArea  v-bind:style="note.style" class="text-area flex column " ref="textAreaObj" :value="value" @input="saveTxt" >{{info.txt}} </textArea>
     <editor-nav @getColor="changeBgcColor" @getNewNotes="sendNewNotes" :note="note"></editor-nav>
     </div> 
     `,

@@ -53,3 +53,7 @@
 .visible {
     display: none;
 }
+
+.underline {
+    text-decoration: none;
+}

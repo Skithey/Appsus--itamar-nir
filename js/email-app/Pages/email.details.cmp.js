@@ -3,7 +3,7 @@ import { emailsService } from '../services/email-service.js'
 export default {
     template: `
 <section class="email-container" v-if="email">
-<div @click="isRead = !isRead" v-bind:class="{read:isRead}">
+<div >
 <ul class="email-details flex column space-between no-list">
 <li class="email-subject">
 {{email.subject}}     {{email.sentAt}}
@@ -23,14 +23,19 @@ export default {
     data() {
         return {
             email: null,
-            isRead: false
         }
     },
     created() {
         const { emailId } = this.$route.params;
         emailsService.getById(emailId)
             .then(email => {
+                email.isRead = false
                 this.email = email;
+                console.log(this.email);
+                setTimeout(() => {
+                    this.$emit('sendReadType', this.email)
+                }, 500)
             })
+            // console.log(this.email);
     },
 }

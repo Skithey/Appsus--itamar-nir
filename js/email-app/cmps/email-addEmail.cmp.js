@@ -19,14 +19,13 @@ export default {
             emailSubject: '',
             emailDesc: ''
         }
-
-
     },
     methods: {
         saveEmail() {
             this.$emit('sendEmail', this.emailToSend, this.emailSubject, this.emailDesc)
-            emailsService.addEmail(this.emailToSend, this.emailSubject, this.emailDesc)
-
+            this.emailSubject = ''
+            this.emailToSend = ''
+            this.emailDesc = ''
         }
     }
 }

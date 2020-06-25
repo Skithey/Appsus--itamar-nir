@@ -1,14 +1,18 @@
-import { myRouter } from './routes.js'
+import { myRouter } from './routes.js';
+import appHeader from './app-header.cmp.js';
 
 new Vue({
     el: '#app',
     router: myRouter,
     template: `
     <div>
-    <h1> Hello Apsus</h1>
-    <router-link to="/email"> Email </router-link> |
-    <router-link to="/notes"> Notes </router-link> |
-    <router-link to="/books"> Books </router-link>
+    <app-header/>
     <router-view/>
-    </div>`
+    <main></main>
+    <footer class="main-footer">cofferights 2020</footer>
+    </div>
+    `,
+    components: {
+        appHeader
+    }
 })

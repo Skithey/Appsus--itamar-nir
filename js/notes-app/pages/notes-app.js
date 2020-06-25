@@ -30,6 +30,7 @@ export default {
     <button @click="ChangeTypeToImg">Add pic</button>
     <button @click="ChangeTypeToTxt">Add text</button>
     <button @click="ChangeTypeToTodos">Add list</button>
+    <input type="color" v-model="bgcColor" @input="changeAddedBgc">
 
 
    <section class="notes-container grid">
@@ -42,6 +43,7 @@ export default {
     `,
     data() {
         return {
+            bgcColor: '',
             type: 'NoteText',
             noteToSave: notesService.getNoteForm(),
             titleVal: '',
@@ -92,7 +94,6 @@ export default {
 
         },
         renderNotes(NewNoteList) {
-
             this.notes = NewNoteList
         },
         ChangeTxt(newTxt, noteId) {
@@ -122,8 +123,10 @@ export default {
         },
         ChangeTypeToTxt() {
             this.type = 'NoteText'
-
         },
+        changeAddedBgc() {
+            this.noteToSave.style.backgroundColor = this.bgcColor
+        }
 
     }
 }

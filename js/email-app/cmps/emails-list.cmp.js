@@ -4,7 +4,7 @@ import emailPreview from './email-preview.cmp.js';
 export default {
     props: ['emails'],
     template: `
-    <ul  class="emails-list flex column no-list">
+    <ul  class="emails-list flex column no-list ">
     <email-preview @changeIsRead="changeEmailIsRead"  @removeCurrEmail="removeCurrentEmail"   @click.native="selectEmail(email)"  v-for="email in emails" :email="email"  :key="email.id"></email-preview>
     </ul>`,
     components: {

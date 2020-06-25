@@ -1,57 +1,32 @@
- .read {
-     font-weight: 800;
- }
- 
- .compose {
-     background-color: lightblue;
-     width: 500px;
-     height: 500px;
- }
- 
- .email-btn {
-     margin: 5px;
- }
- 
- .email-main-header {
-     color: mediumpurple;
-     margin: 0 auto;
-     text-align: center;
- }
- 
- a {
-     text-decoration: none;
- }
- 
- .main-a {
-     font-size: 40px;
- }
- 
- .router-a {
-     color: white;
-     font-size: 20px;
-     margin: 15px;
-     padding: 10px;
- }
- 
- .router-link-exact-active {
-     color: rgb(237, 128, 241);
-     font-weight: 800;
-     letter-spacing: 1px;
- }
- 
- .router-a:hover {
-     color: mediumpurple;
- }
- 
- .email-subject {
-     color: black;
-     border-top: 1px solid grey;
-     border-bottom: 1px solid grey
- }
- 
- .email-subject:hover {
-     border: 1px solid grey
- }
- /* .email-container {
-     background-color: rgb(233, 223, 223);
- } */
+.email-subject {
+    color: black;
+    padding-left: 5px;
+    width: 85vh;
+}
+
+.email-row:nth-child(1) {
+    border-top: 1px solid rgb(184, 184, 184);
+    border-bottom: 1px solid rgb(184, 184, 184);
+}
+
+.email-row:not(:first-child) {
+    border-bottom: 1px solid rgb(184, 184, 184)
+}
+
+.email-row:hover {
+    border: 1px solid gray;
+    box-shadow: 4px 6px 16px -5px rgba(135, 135, 135, 0.75);
+}
+
+.emails-container {
+    width: 100%;
+}
+
+.email-row .email-btns {
+    opacity: 0;
+}
+
+.email-row:hover .email-btns {
+    opacity: 1;
+    transition: .2s;
+}

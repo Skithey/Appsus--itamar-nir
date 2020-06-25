@@ -5,18 +5,24 @@ export default {
     props: ['email'],
     template: `
     
-    <div class="flex space-around">
+    <div class="email-row flex space-between align-center">
     <router-link :to='"/email/" + email.id'> 
+    
     <li v-bind:class="{ read: email.isRead }">
-    <span class="email-subject" > 
-    {{email.subject}} 
-    {{email.body}} 
-    {{email.desc}} 
-    {{email.sentAt}} 
-    </span>
+    <section class="email-subject flex space-between" > 
+   
+        <span class="msg-from" style="font-size:18px"> {{email.from}}  </span>
+   
+        <span class="msg-info ">
+        <span style="font-size:18px">  {{email.subject}} </span>-
+        <span style="color:gray"> {{email.desc}}</span>
+        </span>
+        <span class="time-sent">{{email.sentAt}}</span> 
+    
+    </section>
     </li>    
     </router-link>
-    <email-btns @isReadEmail="isEmailRead" @deleteEmail="removeEmail(email.id)"class="btn">X</email-btns>
+    <email-btns @isReadEmail="isEmailRead" @deleteEmail="removeEmail(email.id)"></email-btns>
     </div>
     `,
     // data() {

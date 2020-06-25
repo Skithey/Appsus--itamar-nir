@@ -1,0 +1,81 @@
+.read {
+    font-weight: 800;
+}
+
+.app-header {
+    height: 70px;
+}
+
+.header-logo {
+    margin-top: 10px;
+    width: 70px;
+}
+
+.header-container {
+    color: white;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: rgb(105, 24, 119);
+}
+
+.email-btn {
+    margin: 5px;
+}
+
+.email-main-header {
+    color: mediumpurple;
+    margin: 10px auto;
+    text-align: center;
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.main-a {
+    font-size: 40px;
+}
+
+.router-a {
+    color: white;
+    font-size: 20px;
+    /* margin-left: 15px;
+     padding-left: 10px; */
+}
+
+.router-link-exact-active {
+    color: rgb(237, 128, 241);
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.router-a:hover {
+    color: mediumpurple;
+}
+
+.router-a:nth-child(1) {
+    /* margin: 0 15px 0 15px; */
+    padding: 0 15px 0 15px;
+}
+
+.router-a:nth-child(2) {
+    /* margin-left: 15px; */
+    padding: 0 15px 0 15px;
+}
+
+.router-a:nth-child(3) {
+    /* margin-left: 15px; */
+    padding: 0 0 0 15px;
+}
+
+
+/* ////////////////////////////////// */
+
+.main-footer {
+    color: rgba(214, 213, 213);
+    background-color: rgb(105, 24, 119);
+    text-align: center;
+    padding: 20px;
+}

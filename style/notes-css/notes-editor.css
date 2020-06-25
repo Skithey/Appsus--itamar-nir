@@ -1,15 +1,47 @@
-.editor-nav {
+.note-txt .editor-nav {
     display: flex;
     justify-content: space-around;
     padding: 5px;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.746);
+    background-color: rgba(0, 0, 0, 0.459);
     position: absolute;
     bottom: 0;
     opacity: 0;
 }
 
-.editor-nav:hover {
+.note-txt:hover .editor-nav {
+    opacity: 1;
+    transition: .2s;
+}
+
+.note-todods .editor-nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.459);
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+}
+
+.note-todods:hover .editor-nav {
+    opacity: 1;
+    transition: .2s;
+}
+
+.note-img .editor-nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.459);
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+}
+
+.note-img:hover .editor-nav {
     opacity: 1;
     transition: .2s;
 }

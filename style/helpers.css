@@ -32,6 +32,10 @@
     align-items: center;
 }
 
+.fixed {
+    position: fixed;
+}
+
 
 /* GRID */
 
@@ -47,7 +51,17 @@
 }
 
 .btn {
+    background: rgb(190, 190, 190);
+    border: none;
+    outline: none;
+    border-radius: 5px;
     cursor: pointer;
+    padding: 10px;
+}
+
+.btn:hover {
+    background-color: gray;
+    transition: .2s;
 }
 
 .visible {

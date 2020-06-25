@@ -22,9 +22,9 @@ var gEmails = (() => {
 
 function createDefaultEmails() {
     return [
-        { id: utilsService.getRandomId(), subject: 'Zoom', body: 'Pick up!', desc: 'Zoom is a very nice app', isRead: false, sentAt: recivedTime },
-        { id: utilsService.getRandomId(), subject: 'shishlik?', body: 'Pickeda up!', desc: 'shishlik is a very nice food', isRead: true, sentAt: recivedTime },
-        { id: utilsService.getRandomId(), subject: 'JS is fun', body: 'JSJSJSJS', desc: 'JS is good for your health', isRead: true, sentAt: recivedTime },
+        { id: utilsService.getRandomId(), from: 'Itamar', subject: 'Zoom', desc: 'Zoom is a very nice app', isRead: false, sentAt: recivedTime },
+        { id: utilsService.getRandomId(), from: 'Itamar', subject: 'shishlik?', desc: 'shishlik is a very nice food', isRead: true, sentAt: recivedTime },
+        { id: utilsService.getRandomId(), from: 'Itamar', subject: 'JS is fun', desc: 'JS is good for your health', isRead: true, sentAt: recivedTime },
     ]
 }
 
@@ -70,12 +70,12 @@ function removeEmail(emailId) {
 }
 
 
-function addEmail(to, subject, desc) {
+function addEmail(to, subject, desc, from) {
     const email = {
         id: utilsService.getRandomId(),
+        from,
         subject,
         to,
-        body: 'baqlawa',
         desc,
         isRead: true,
         sentAt: recivedTime

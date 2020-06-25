@@ -4,11 +4,11 @@ import { emailsService } from '../services/email-service.js'
 export default {
     // props: ['email'],
     template: `
-    <section class="flex space-between">
-    <button  @click="onRead"  class="email-btn">
+    <section class="email-btns flex space-between">
+    <button  @click="onRead"  class="email-btn btn">
     read
     </button>
-    <button  @click="deleteEmail" class="delete-btn email-btn">
+    <button  @click="deleteEmail" class="delete-btn email-btn btn">
     X
     </button>
     </section>

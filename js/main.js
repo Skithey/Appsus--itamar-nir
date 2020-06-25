@@ -1,5 +1,5 @@
 import { myRouter } from './routes.js';
-import appHeader from './app-header.cmp.js';
+import appHeader from './email-app/cmps/app-header.cmp.js';
 
 new Vue({
     el: '#app',

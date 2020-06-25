@@ -8,21 +8,26 @@ import addEmail from '../cmps/email-addEmail.cmp.js';
 export default {
     template: `
     <div class="email-container ">
-    <h2 class="email-main-header"> email-app</h2>
-    <div class="flex space-between container">
-    <section class="filter-container">
-    <button @click="isVisible = !isVisible">+ Compose</button>
-    <add-email @sendEmail="addEmail"></add-email>
-    <email-filter @filter="setFilter"></email-filter>
-    {{emailsToRead}}
-    <div  class="compose" :class="{visible:isVisible}">
-    </div>
-    </section>
-    <section> 
-    <email-details @sendReadType="changeIsReadType"  @close="setCurrEmail" v-if="currEmail" :email="currEmail" ></email-details>
-    <emails-list @emailToRead="emailIsRead" @emailToRemove="removeEmail" @emailSelected="setCurrEmail"  v-bind:emails="emailsToShow" ></emails-list>
-    </section>
-    </div>
+
+        <h2 class="email-main-header"> email-app</h2>
+
+        <div class="flex container">
+
+            <section class="filter-container flex column">
+                <button class="compose-btn" @click="isVisible = !isVisible">+ Compose</button>
+                <span>{{emailsToRead}}</span>
+                <div  class="new-mail fixed" :class="{visible:isVisible}">
+                    <add-email  @sendEmail="addEmail"></add-email>
+                </div>
+                <email-filter @filter="setFilter"></email-filter>
+            </section>
+
+            <section class="emails-container "> 
+                <email-details @sendReadType="changeIsReadType"  @close="setCurrEmail" v-if="currEmail" :email="currEmail" ></email-details>
+                <emails-list @emailToRead="emailIsRead" @emailToRemove="removeEmail" @emailSelected="setCurrEmail"  v-bind:emails="emailsToShow" ></emails-list>
+
+            </section>
+        </div>
     </div>`,
     // <email-status></email-status>
     data() {
@@ -62,8 +67,9 @@ export default {
         setFilter(filterBy) {
             this.filterBy = filterBy
         },
-        addEmail(to, subject, desc) {
-            emailsService.addEmail(to, subject, desc)
+        addEmail(to, subject, desc, from) {
+            this.isVisible = !this.isVisible
+            emailsService.addEmail(to, subject, desc, from)
                 .then(email => {
                     this.emails.push(email)
                 })
@@ -99,7 +105,7 @@ export default {
         },
         emailId() {
             return this.$route.params.emailId
-        },
+        }
     },
     components: {
         emailsList,

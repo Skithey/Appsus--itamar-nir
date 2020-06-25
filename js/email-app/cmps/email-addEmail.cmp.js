@@ -6,15 +6,24 @@ import { emailsService } from '../services/email-service.js';
 export default {
     template: `
     <div class="add-email-container flex">
-    <form class="flex column" @submit="saveEmail">
-    <input v-model="emailToSend" type="text" placeholder="sendTo@email.com">
-    <input v-model="emailSubject" type="text" placeholder="subject">
+    <form class="email-modal flex column" @submit="saveEmail">
+   
+    <header class="new-mail-header flex space-between">
+    <h3>New Email</h3> 
+    <button>X</button>
+    </header>
+   
+    <input v-model="from" type="text" placeholder="who are you?" >
+    <input v-model="emailToSend" type="text" placeholder="example@email.com">
+    <input v-model="emailSubject" type="text" placeholder="subject" >
     <textarea v-model="emailDesc" ></textarea>
-    <button>Send</button>
+    <button class="submit-btn">Send</button>
     </form>
     </div>`,
     data() {
         return {
+            isVisible: true,
+            from: '',
             emailToSend: '',
             emailSubject: '',
             emailDesc: ''
@@ -22,10 +31,12 @@ export default {
     },
     methods: {
         saveEmail() {
-            this.$emit('sendEmail', this.emailToSend, this.emailSubject, this.emailDesc)
+            this.$emit('sendEmail', this.emailToSend, this.emailSubject, this.emailDesc, this.from)
             this.emailSubject = ''
             this.emailToSend = ''
             this.emailDesc = ''
-        }
+        },
+
     }
+
 }

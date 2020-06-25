@@ -4,20 +4,26 @@ export default {
     template: `
     <section class="email-filter" >
     <input type="text" placeholder="Filter by text" v-model="filterBy.byTxt" @input="filter"/>
-    <input type="checkbox"  v-model="filterBy.byIsRead" @input="filter"/>
+    <select value="all" v-model="filterBy.byIsRead" @change="filter">
+    <option value="all">All</option>
+    <option value="read">Read</option>
+    <option value="unread">Unread</option>
+    </select>
     <button @click="clearFilters"> Clear </button>
     </section>
     `,
+    // <input type="checkbox"  v-model="filterBy.byIsRead" @input="filter"/>
     data() {
         return {
             filterBy: {
-                byTxt: '',
-                byIsRead: ''
+                byTxt: null,
+                byIsRead: 'all'
             }
         }
     },
     methods: {
         filter() {
+            // console.log(this.filterBy.byTxt);
             this.$emit('filter', this.filterBy);
         },
         clearFilters() {

@@ -7,23 +7,29 @@ import addEmail from '../cmps/email-addEmail.cmp.js';
 
 export default {
     template: `
-    <div class="email-container">
+    <div class="email-container ">
     <h2 class="email-main-header"> email-app</h2>
+    <div class="flex space-between container">
+    <section class="filter-container">
     <button @click="isVisible = !isVisible">+ Compose</button>
-    <div  class="compose" :class="{visible:isVisible}">
     <add-email @sendEmail="addEmail"></add-email>
-    </div>
-    {{emailsToRead}}
     <email-filter @filter="setFilter"></email-filter>
+    {{emailsToRead}}
+    <div  class="compose" :class="{visible:isVisible}">
+    </div>
+    </section>
+    <section> 
     <email-details @sendReadType="changeIsReadType"  @close="setCurrEmail" v-if="currEmail" :email="currEmail" ></email-details>
     <emails-list @emailToRead="emailIsRead" @emailToRemove="removeEmail" @emailSelected="setCurrEmail"  v-bind:emails="emailsToShow" ></emails-list>
+    </section>
+    </div>
     </div>`,
     // <email-status></email-status>
     data() {
         return {
             emails: [],
             currEmail: null,
-            filterBy: null,
+            filterBy: '',
             isVisible: true,
             emailsToRead: 0
         }
@@ -75,14 +81,21 @@ export default {
     },
     computed: {
         emailsToShow() {
-            const filterBy = this.filterBy;
-            if (!filterBy) return this.emails
-            var filteredEmails = this.emails.filter((email) => {
-                const isRead = email.isRead
-                if (isRead) return email
+            if (!this.filterBy) return this.emails
+            if (this.filterBy.byTxt) {
+
+                let filteredEmails = this.emails.filter(email => {
+                    return email.desc.toLowerCase().includes(this.filterBy.byTxt.toLowerCase())
+                })
+                return filteredEmails
+            }
+            if (this.filterBy.byIsRead === 'all') return this.emails
+            if (this.filterBy.byIsRead === 'read') return this.emails.filter(email => {
+                if (email.isRead) return email
             })
-            console.log(filteredEmails);
-            return filteredEmails
+            if (this.filterBy.byIsRead === 'unread') return this.emails.filter(email => {
+                if (!email.isRead) return email
+            })
         },
         emailId() {
             return this.$route.params.emailId

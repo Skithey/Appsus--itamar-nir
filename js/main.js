@@ -8,7 +8,6 @@ new Vue({
     <div>
     <app-header/>
     <router-view/>
-    <main></main>
     <footer class="main-footer">cofferights 2020</footer>
     </div>
     `,

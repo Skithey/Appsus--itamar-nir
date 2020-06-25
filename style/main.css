@@ -9,6 +9,7 @@
 
 body {
     margin: 0;
+    background-color: rgb(233, 223, 223);
 }
 
 
@@ -19,11 +20,18 @@ body {
 }
 
 header {
+    color: white;
     margin: 0;
-    background-color: rgb(177, 225, 231);
+    background-color: rgb(105, 24, 119);
 }
 
 .main-footer {
-    background-color: rgb(177, 225, 231);
+    color: white;
+    background-color: rgb(105, 24, 119);
     text-align: center;
+}
+
+.header-logo {
+    margin-top: 10px;
+    width: 70px;
 }

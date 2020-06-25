@@ -13,7 +13,9 @@
  }
  
  .email-main-header {
-     margin: 0;
+     color: mediumpurple;
+     margin: 0 auto;
+     text-align: center;
  }
  
  a {
@@ -25,13 +27,20 @@
  }
  
  .router-a {
+     color: white;
      font-size: 20px;
      margin: 15px;
+     padding: 10px;
+ }
+ 
+ .router-link-exact-active {
+     color: rgb(237, 128, 241);
+     font-weight: 800;
+     letter-spacing: 1px;
  }
  
  .router-a:hover {
-     background-color: rgba(218, 200, 200, 0.5);
-     border-radius: 10px;
+     color: mediumpurple;
  }
  
  .email-subject {
@@ -43,8 +52,6 @@
  .email-subject:hover {
      border: 1px solid grey
  }
- 
- .email-container {
-     background-color: rgb(221, 217, 217);
-     /* height: 100vh; */
- }
+ /* .email-container {
+     background-color: rgb(233, 223, 223);
+ } */

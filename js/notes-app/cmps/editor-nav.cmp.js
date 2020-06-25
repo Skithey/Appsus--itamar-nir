@@ -8,7 +8,6 @@ export default {
     <button @click="removeNote">Delete</button>
     </section>
     `,
-    // <input class="img-from-user" type="file" name="image" @change="onImgInput" />
     props: ['note'],
     data() {
         return {
@@ -23,19 +22,11 @@ export default {
             this.$emit('getImg')
         },
         removeNote() {
-            console.log('sending note');
-            // console.log(this.note);
             let newNoteList = notesService.removeNote(this.note)
-
-
             this.$emit('getNewNotes', newNoteList)
         },
         changeBgcColor() {
             this.$emit('getColor', this.bgcColor)
-
-
         },
-
     }
-
 }

@@ -81,7 +81,6 @@ export default {
         addImgNote() {
             this.noteToSave.type = this.type
             this.noteToSave.info.url = this.imgUrl
-                // console.log(this.imgUrl);
             console.log(this.noteToSave)
             notesService.addNote(this.noteToSave)
                 .then(notes => {
@@ -93,6 +92,7 @@ export default {
 
         },
         renderNotes(NewNoteList) {
+
             this.notes = NewNoteList
         },
         ChangeTxt(newTxt, noteId) {
@@ -113,16 +113,16 @@ export default {
         },
         ChangeTypeToImg() {
             this.type = 'NoteImg'
-                // console.log(this.type);
+
 
         },
         ChangeTypeToTodos() {
             this.type = 'NoteTodos'
-                // console.log(this.type);
+
         },
         ChangeTypeToTxt() {
             this.type = 'NoteText'
-                // console.log(this.type);
+
         },
 
     }

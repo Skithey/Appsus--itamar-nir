@@ -78,7 +78,6 @@ function getNotes() {
 
     } else {
         const notes = utilsService.loadFromStorage('NOTES')
-            // console.log(notes);
 
         return Promise.resolve(notes)
     }
@@ -89,8 +88,6 @@ function addNote(note) {
     utilsService.saveToStorage('NOTES', gNotes)
     return Promise.resolve(gNotes)
 
-    // console.log('new note list: ', gNotes, 'new   note added: ', note)
-    // return Promise.resolve(gNotes)
 }
 
 function getNoteForm() {
@@ -110,23 +107,18 @@ function getNoteForm() {
 }
 
 function removeNote(noteToRemove) {
-    // console.log('shwarma: ', noteToRemove)
     getById(noteToRemove.id)
         .then(note => {
             console.log('sabih: ', note)
             gNotes.splice(note, 1)
             utilsService.saveToStorage('NOTES', gNotes)
         })
-        // console.log(gNotes);
 
     return gNotes
 }
 
 function getById(noteId) {
     const note = gNotes.findIndex(note => {
-        // console.log('falafel: ', note.id);
-        // console.log('shwarma: ', noteId)
-
         return note.id === noteId
     })
 

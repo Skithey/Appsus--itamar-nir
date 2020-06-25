@@ -23,7 +23,6 @@ export default {
     },
     methods: {
         sendNewNotes(newNotes) {
-            // console.log(newNotes);
             this.$emit('sendNewNotes', newNotes)
         },
         saveTxt() {
@@ -35,7 +34,6 @@ export default {
         changeBgcColor(newColor) {
             this.note.style.backgroundColor = newColor
             this.$emit('newColor', newColor, this.note.id)
-                // console.log(this.note.style.backgroundColor);
 
         }
     }

@@ -4,47 +4,61 @@ export const notesService = {
     getNotes,
     addNote,
     getNoteForm,
-    removeNote
+    removeNote,
+    getById,
+    addTxtToNote
 }
 
 
-var gNotes = [{
-        id: utilsService.getRandomId(),
-        type: "NoteText",
-        isPinned: true,
-        info: {
-            txt: "Fullstack Me Baby!"
-        }
-    },
-    {
-        id: utilsService.getRandomId(),
-        type: "NoteImg",
-        info: {
-            url: "http://some-img/me",
-            title: "Me playing Mi"
-        },
-        style: {
-            backgroundColor: "#00d"
-        }
-    },
-    {
-        id: utilsService.getRandomId(),
-        type: "NoteTodos",
-        info: {
-            label: "How was it:",
-            todos: [{
-                    txt: "Do that",
-                    doneAt: null
-                },
-                {
-                    txt: "Do this",
-                    doneAt: 187111111
-                }
-            ]
-        }
-    },
+const gNotes = (() => {
+    var notes = utilsService.loadFromStorage('NOTES');
+    if (!notes) {
+        notes = getDefNotes();
+        utilsService.saveToStorage('NOTES', notes);
+    }
+    return notes;
+})()
 
-];
+function getDefNotes() {
+
+    return [{
+            id: utilsService.getRandomId(),
+            type: "NoteText",
+            isPinned: true,
+            info: {
+                txt: "Fullstack Me Baby!"
+            }
+        },
+        {
+            id: utilsService.getRandomId(),
+            type: "NoteImg",
+            info: {
+                url: "http://some-img/me",
+                title: "Me playing Mi"
+            },
+            style: {
+                backgroundColor: "#00d"
+            }
+        },
+        {
+            id: utilsService.getRandomId(),
+            type: "NoteTodos",
+            info: {
+                label: "How was it:",
+                todos: [{
+                        txt: "Do that",
+                        doneAt: null
+                    },
+                    {
+                        txt: "Do this",
+                        doneAt: 187111111
+                    }
+                ]
+            }
+        },
+
+    ]
+};
 
 
 function getNotes() {
@@ -54,7 +68,7 @@ function getNotes() {
 
     } else {
         const notes = utilsService.loadFromStorage('NOTES')
-        console.log(notes);
+            // console.log(notes);
 
         return Promise.resolve(notes)
     }
@@ -84,21 +98,32 @@ function getNoteForm() {
 }
 
 function removeNote(noteToRemove) {
+    // console.log('shwarma: ', noteToRemove)
     getById(noteToRemove.id)
         .then(note => {
-            console.log(note)
-
+            console.log('sabih: ', note)
+            gNotes.splice(note, 1)
+            utilsService.saveToStorage('NOTES', gNotes)
         })
+        // console.log(gNotes);
 
+    return gNotes
 }
 
 function getById(noteId) {
-    // console.log(noteId)
     const note = gNotes.findIndex(note => {
-        console.log(note.id);
+        // console.log('falafel: ', note.id);
+        // console.log('shwarma: ', noteId)
 
-        note.id === noteId
+        return note.id === noteId
     })
 
     return Promise.resolve(note)
+}
+
+function addTxtToNote(newTxt, noteIdx) {
+    gNotes[noteIdx].info.txt = newTxt
+    utilsService.saveToStorage('NOTES', gNotes)
+
+
 }

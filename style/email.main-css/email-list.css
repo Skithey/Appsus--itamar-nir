@@ -7,3 +7,44 @@
      width: 500px;
      height: 500px;
  }
+ 
+ .email-btn {
+     margin: 5px;
+ }
+ 
+ .email-main-header {
+     margin: 0;
+ }
+ 
+ a {
+     text-decoration: none;
+ }
+ 
+ .main-a {
+     font-size: 40px;
+ }
+ 
+ .router-a {
+     font-size: 20px;
+     margin: 15px;
+ }
+ 
+ .router-a:hover {
+     background-color: rgba(218, 200, 200, 0.5);
+     border-radius: 10px;
+ }
+ 
+ .email-subject {
+     color: black;
+     border-top: 1px solid grey;
+     border-bottom: 1px solid grey
+ }
+ 
+ .email-subject:hover {
+     border: 1px solid grey
+ }
+ 
+ .email-container {
+     background-color: rgb(221, 217, 217);
+     /* height: 100vh; */
+ }

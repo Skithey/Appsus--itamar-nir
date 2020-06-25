@@ -1,11 +1,13 @@
 import { emailsService } from '../services/email-service.js'
+import emailBtns from './email-btns.cmp.js'
 
 export default {
     props: ['email'],
     template: `
+    
     <div class="flex space-around">
     <router-link :to='"/email/" + email.id'> 
-    <li class="">
+    <li v-bind:class="{ read: email.isRead }">
     <span class="email-subject" > 
     {{email.subject}} 
     {{email.body}} 
@@ -14,32 +16,32 @@ export default {
     </span>
     </li>    
     </router-link>
-    <span class="btn" @click="deleteEmail">X</span>
+    <email-btns @isReadEmail="isEmailRead" @deleteEmail="removeEmail(email.id)"class="btn">X</email-btns>
     </div>
     `,
-    data() {
-        return {
-            emails: []
-        }
-    },
+    // data() {
+    //     return {
+    //         isRead: false
+    //     }
+    // },
+
 
     methods: {
-        deleteEmail(emailId) {
-            this.$emit('deleteEmail', emailId)
-            emailsService.removeEmail(emailId)
-            var deleteIdx = this.emails.findIndex(email => email.id === emailId);
-            this.emails.splice()
-            emailsService.getEmails()
-                .then(emails => {
-                    this.emails = emails
-                    console.log(this.emails);
-                })
+        removeEmail(emailId) {
+            this.$emit('removeCurrEmail', emailId)
+        },
+        isEmailRead() {
+            this.$emit('changeIsRead', this.email.id)
+                // console.log(this.email.isRead);
         }
     },
     computed: {
         emailsToShow() {
             return this.emails
-        },
+        }
+    },
+    components: {
+        emailBtns
     }
 
 

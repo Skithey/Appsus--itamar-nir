@@ -10,3 +10,20 @@
 body {
     margin: 0;
 }
+
+
+/*HEADER*/
+
+.app-header {
+    height: 70px;
+}
+
+header {
+    margin: 0;
+    background-color: rgb(177, 225, 231);
+}
+
+.main-footer {
+    background-color: rgb(177, 225, 231);
+    text-align: center;
+}

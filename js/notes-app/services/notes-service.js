@@ -1,12 +1,14 @@
 import { utilsService } from '../../utils/utils-service.js'
 
+
 export const notesService = {
     getNotes,
     addNote,
     getNoteForm,
     removeNote,
     getById,
-    addTxtToNote
+    addTxtToNote,
+    changeNoteBgc
 }
 
 
@@ -26,24 +28,29 @@ function getDefNotes() {
             type: "NoteText",
             isPinned: true,
             info: {
+                url: "../../../img/pug.jpg",
                 txt: "Fullstack Me Baby!"
+            },
+            style: {
+                backgroundColor: "#ffff"
             }
         },
         {
             id: utilsService.getRandomId(),
             type: "NoteImg",
             info: {
-                url: "http://some-img/me",
+                url: 'https://secure.img1-ag.wfcdn.com/im/53299221/compr-r85/4307/43074449/hanging-pug-puppy-statue.jpg',
                 title: "Me playing Mi"
             },
             style: {
-                backgroundColor: "#00d"
+                backgroundColor: "#ffff"
             }
         },
         {
             id: utilsService.getRandomId(),
             type: "NoteTodos",
             info: {
+                url: "",
                 label: "How was it:",
                 todos: [{
                         txt: "Do that",
@@ -54,6 +61,9 @@ function getDefNotes() {
                         doneAt: 187111111
                     }
                 ]
+            },
+            style: {
+                backgroundColor: "#ffff"
             }
         },
 
@@ -75,11 +85,9 @@ function getNotes() {
 }
 
 function addNote(note) {
-    console.log(note);
-
-
     gNotes.unshift(note)
     utilsService.saveToStorage('NOTES', gNotes)
+    return Promise.resolve(gNotes)
 
     // console.log('new note list: ', gNotes, 'new   note added: ', note)
     // return Promise.resolve(gNotes)
@@ -91,8 +99,12 @@ function getNoteForm() {
         type: "NoteText",
         isPinned: true,
         info: {
+            url: '',
             title: '',
             txt: ''
+        },
+        style: {
+            backgroundColor: "#ffff"
         }
     }
 }
@@ -125,5 +137,11 @@ function addTxtToNote(newTxt, noteIdx) {
     gNotes[noteIdx].info.txt = newTxt
     utilsService.saveToStorage('NOTES', gNotes)
 
+
+}
+
+function changeNoteBgc(newColor, noteIdx) {
+    gNotes[noteIdx].style.backgroundColor = newColor
+    utilsService.saveToStorage('NOTES', gNotes)
 
 }

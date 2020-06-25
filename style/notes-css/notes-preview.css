@@ -1,6 +1,20 @@
 .note {
     /* background-color: lightblue; */
+    position: relative;
     border: 1px solid black;
-    /* margin: 20px; */
-    padding: 20px;
+    /* margin: 2px; */
+    /* padding: 2px; */
+}
+
+.note-img img {
+    height: 100%;
+    width: 100%;
+}
+
+.text-area {
+    margin: 5px auto;
+    width: 90%;
+    /* border: none; */
+    outline: none;
+    resize: none;
 }

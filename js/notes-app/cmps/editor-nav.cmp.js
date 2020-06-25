@@ -3,17 +3,17 @@ import { notesService } from '../services/notes-service.js'
 
 export default {
     template: `
-    <section>
-    <input type="color">
-    <button @click="addImg">Img</button>
+    <section class="editor-nav">
+    <input type="color" v-model="bgcColor" @input="changeBgcColor">
     <button @click="removeNote">Delete</button>
- 
     </section>
     `,
+    // <input class="img-from-user" type="file" name="image" @change="onImgInput" />
     props: ['note'],
     data() {
         return {
-            url: ''
+            url: '',
+            bgcColor: '#ffff'
         }
     },
     methods: {
@@ -29,9 +29,13 @@ export default {
 
 
             this.$emit('getNewNotes', newNoteList)
-        }
+        },
+        changeBgcColor() {
+            this.$emit('getColor', this.bgcColor)
+
+
+        },
+
     }
-
-
 
 }

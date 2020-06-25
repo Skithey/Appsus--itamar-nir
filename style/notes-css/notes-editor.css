@@ -1,0 +1,19 @@
+.editor-nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.746);
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+}
+
+.editor-nav:hover {
+    opacity: 1;
+    transition: .2s;
+}
+
+.note-txt {
+    padding-bottom: 20px;
+}

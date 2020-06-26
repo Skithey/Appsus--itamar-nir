@@ -4,7 +4,7 @@ export default {
     template: `
     <section class="email-filter flex column" >
     <input type="text" placeholder="Filter by text" v-model="filterBy.byTxt" @input="filter"/>
-    <select value="all" v-model="filterBy.byIsRead" @change="filter">
+    <select class="select-filter" v-model="filterBy.byIsRead" @change="filter">
     <option value="all">All</option>
     <option value="read">Read</option>
     <option value="unread">Unread</option>

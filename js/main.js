@@ -1,5 +1,6 @@
 import { myRouter } from './routes.js';
 import appHeader from './email-app/cmps/app-header.cmp.js';
+import appFooter from './email-app/cmps/app-footer.cmp.js';
 
 new Vue({
     el: '#app',
@@ -8,10 +9,13 @@ new Vue({
     <div>
     <app-header/>
     <router-view/>
-    <footer class="main-footer">cofferights 2020</footer>
+    <div>
+    <app-footer/>
+    </div>
     </div>
     `,
     components: {
-        appHeader
+        appHeader,
+        appFooter
     }
 })

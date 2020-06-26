@@ -15,7 +15,10 @@ export default {
 
             <section class="filter-container flex column">
                 <button class="compose-btn" @click="isVisible = !isVisible">+ Compose</button>
-                <span>{{emailsToRead}}</span>
+                <button @click="AllEmails" class="inbox-btn flex space-between btn">
+                <span>Inbox</span> 
+                <span>{{emailsToRead}}</span> 
+                </button>
                 <div  class="new-mail fixed" :class="{visible:isVisible}">
                     <add-email  @sendEmail="addEmail"></add-email>
                 </div>
@@ -73,6 +76,14 @@ export default {
                 .then(email => {
                     this.emails.push(email)
                 })
+        },
+        AllEmails() {
+            this.filterBy = {
+                byTxt: null,
+                byIsRead: 'all'
+            }
+            let selectVal = document.querySelector('.select-filter').value
+            selectVal = this.filterBy.byIsRead
         }
     },
     created() {

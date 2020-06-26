@@ -74,6 +74,9 @@ a {
 /* ////////////////////////////////// */
 
 .main-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     color: rgba(214, 213, 213);
     background-color: rgb(105, 24, 119);
     text-align: center;

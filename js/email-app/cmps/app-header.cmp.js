@@ -9,7 +9,7 @@ export default {
         <div class="routs-container flex space-between">
         <router-link class="nav-btn underline no-list router-a" to="/email"> Email </router-link> |
         <router-link class="nav-btn underline no-list router-a" to="/notes"> Notes </router-link> |
-        <router-link class="nav-btn underline no-list router-a" to="/books"> Books </router-link>
+        <router-link class="nav-btn underline no-list router-a" to="/books/homePage"> Books </router-link>
         </div>
         </nav>
     </header>`,

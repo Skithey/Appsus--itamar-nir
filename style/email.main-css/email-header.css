@@ -13,7 +13,6 @@
 
 .header-container {
     color: white;
-    margin-bottom: 20px;
     padding: 10px;
     background-color: rgb(105, 24, 119);
 }
@@ -25,6 +24,7 @@
 .email-main-header {
     color: mediumpurple;
     margin: 10px auto;
+    margin-top: 20px;
     text-align: center;
     border-bottom: 1px solid gray;
     padding-bottom: 10px;
@@ -74,7 +74,7 @@ a {
 /* ////////////////////////////////// */
 
 .main-footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     color: rgba(214, 213, 213);

@@ -6,6 +6,7 @@
 @import './notes-css/notes-app.css';
 @import './notes-css/notes-editor.css';
 @import './helpers.css';
+@import '/style/books-main-css/books.css';
 * {
     box-sizing: border-box;
 }

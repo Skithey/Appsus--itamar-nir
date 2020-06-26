@@ -89,8 +89,8 @@ body {
 }
 
 .router-link-exact-active {
-    color: rgb(52, 192, 169);
-    font-size: 1.7rem;
+    color: pink;
+    /* font-size: 1.7rem; */
 }
 
 .nav-btn:hover {
@@ -118,7 +118,7 @@ body {
 }
 
 .book-preview {
-    background-color: rgb(141, 202, 192);
+    background-color: rgba(105, 24, 119, 0.8);
     color: rgb(15, 15, 58);
     padding: 20px;
     margin: 10px;
@@ -148,7 +148,7 @@ body {
 .book-price {
     margin-bottom: 20px;
     font-size: 25px;
-    color: rgb(49, 76, 77);
+    color: rgb(15, 15, 58);
 }
 
 

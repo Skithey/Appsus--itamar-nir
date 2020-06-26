@@ -5,13 +5,13 @@ export default {
     props: ['email'],
     template: `
     
-    <div class="email-row flex space-between align-center">
+    <div  class="email-row flex space-between align-center">
+    <i title="Change importance" @click="changeImportance" :class="{importance:isImportant}" class="far fa-star"></i>   
     <router-link :to='"/email/" + email.id'> 
     
-    <li v-bind:class="{ read: email.isRead }">
+    <li  v-bind:class="{ read: email.isRead }">
     <section class="email-subject flex space-between" > 
-   
-        <span class="msg-from" style="font-size:18px"> {{email.from}}  </span>
+         <span class="msg-from" style="font-size:18px"> {{email.from}}  </span>
    
         <span class="msg-info ">
         <span style="font-size:18px">  {{email.subject}} </span>-
@@ -25,11 +25,12 @@ export default {
     <email-btns @isReadEmail="isEmailRead" @deleteEmail="removeEmail(email.id)"></email-btns>
     </div>
     `,
-    // data() {
-    //     return {
-    //         isRead: false
-    //     }
-    // },
+    // :class="(starNum) <= selectedStar ? classNames.marked : classNames.unmarked"
+    data() {
+        return {
+            isImportant: this.email.isImportant
+        }
+    },
 
 
     methods: {
@@ -39,6 +40,10 @@ export default {
         isEmailRead() {
             this.$emit('changeIsRead', this.email.id)
                 // console.log(this.email.isRead);
+        },
+        changeImportance() {
+            this.isImportant = !this.email.isImportant
+            this.$emit("changeIsImportance", this.email.id);
         }
     },
     computed: {

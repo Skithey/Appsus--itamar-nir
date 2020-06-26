@@ -30,3 +30,7 @@
     opacity: 1;
     transition: .2s;
 }
+
+.importance {
+    color: yellow;
+}

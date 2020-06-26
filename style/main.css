@@ -1,7 +1,9 @@
+@import './main-horse.css';
 @import './email.main-css/email-header.css';
 @import './email.main-css/email-filter-section.css';
 @import './email.main-css/email-list.css';
 @import './email.main-css/email-modal.css';
+@import './email.main-css/email-details.css';
 @import './notes-css/notes-preview.css';
 @import './notes-css/notes-app.css';
 @import './notes-css/notes-editor.css';
@@ -14,4 +16,21 @@
 body {
     margin: 0;
     background-color: rgb(233, 223, 223);
+}
+
+.main-home-page-header {
+    color: purple;
+    position: relative;
+    text-align: center;
+    font-size: 100px;
+    animation: mainHeaderAnimation .8s;
+}
+
+@keyframes mainHeaderAnimation {
+    from {
+        left: -1000px;
+    }
+    to {
+        left: 0;
+    }
 }

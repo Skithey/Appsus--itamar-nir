@@ -21,6 +21,16 @@
     margin: 5px;
 }
 
+.btncolor {
+    background-color: beige;
+    color: beige
+}
+
+.fas {
+    background-color: beige;
+    color: beige;
+}
+
 .email-main-header {
     color: mediumpurple;
     margin: 10px auto;

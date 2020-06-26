@@ -21,12 +21,14 @@ export default {
     Page count: {{book.pageCount}}
     </li>
     <li class="etc-detail">
-   Publish date: {{book.publishedDate}} - {{publishedDate}}
+    Publish date: {{book.publishedDate}} - {{publishedDate}}
     </li>
     <li class="etc-detail" v-bind:class="{red: isExpensive , green: isCheap }">
     {{bookPrice}}
     </li>
-
+    <li>
+    <img :src="book.thumbnail">
+    </li>
     <li class="desc-detail">
     <book-desc :txt="book.description"></book-desc>
     </li>
@@ -121,7 +123,6 @@ export default {
         booksService.getById(bookId)
             .then(book => {
                 console.log(book);
-
                 this.book = book;
                 console.log(this.book);
             })

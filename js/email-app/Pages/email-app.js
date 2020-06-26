@@ -14,7 +14,7 @@ export default {
         <div class="flex container">
 
             <section class="filter-container flex column">
-                <button class="compose-btn" @click="isVisible = !isVisible">+ Compose</button>
+                <button title="Send email" class="compose-btn" @click="isVisible = !isVisible">+ Compose</button>
                 <button @click="AllEmails" class="inbox-btn flex space-between btn">
                 <span>Inbox</span> 
                 <span>{{emailsToRead}}</span> 
@@ -26,12 +26,13 @@ export default {
             </section>
 
             <section class="emails-container "> 
-                <email-details @sendReadType="changeIsReadType"  @close="setCurrEmail" v-if="currEmail" :email="currEmail" ></email-details>
-                <emails-list @emailToRead="emailIsRead" @emailToRemove="removeEmail" @emailSelected="setCurrEmail"  v-bind:emails="emailsToShow" ></emails-list>
+                <email-details   @close="setCurrEmail" v-if="currEmail" :email="currEmail" ></email-details>
+                <emails-list @emailImpChange="changeEmailImp" @emailToRead="emailIsRead" @emailToRemove="removeEmail" @emailSelected="setCurrEmail"  v-bind:emails="emailsToShow" ></emails-list>
 
             </section>
         </div>
     </div>`,
+    // @sendReadType="changeIsReadType"
     // <email-status></email-status>
     data() {
         return {
@@ -43,16 +44,14 @@ export default {
         }
     },
     methods: {
-        changeIsReadType(email) {
-            console.log(email);
-            console.log('hey');
+        changeEmailImp(emailId) {
+            let emailIdx = emailsService.changeEmailImp(emailId)
+            this.emails[emailIdx].isImportant = !this.emails[emailIdx].isImportant
 
         },
         removeEmail(emailId) {
-            console.log(emailId);
             emailsService.removeEmail(emailId)
                 .then(emails => {
-                    console.log(this.emails);
                     this.emails = emails
                 })
         },

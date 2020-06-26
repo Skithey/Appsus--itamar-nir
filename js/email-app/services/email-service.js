@@ -5,7 +5,8 @@ export const emailsService = {
     getById,
     removeEmail,
     addEmail,
-    changeIsRead
+    changeIsRead,
+    changeEmailImp
 }
 const EMAIL_INFO = 'emails'
 var recivedHour = new Date().getHours();
@@ -22,9 +23,9 @@ var gEmails = (() => {
 
 function createDefaultEmails() {
     return [
-        { id: utilsService.getRandomId(), from: 'Itamar', subject: 'Zoom', desc: 'Zoom is a very nice app', isRead: false, sentAt: recivedTime },
-        { id: utilsService.getRandomId(), from: 'Itamar', subject: 'shishlik?', desc: 'shishlik is a very nice food', isRead: true, sentAt: recivedTime },
-        { id: utilsService.getRandomId(), from: 'Itamar', subject: 'JS is fun', desc: 'JS is good for your health', isRead: true, sentAt: recivedTime },
+        { id: utilsService.getRandomId(), from: 'Itamar', subject: 'Zoom', desc: 'Zoom is a very nice app', isRead: false, isImportant: true, sentAt: recivedTime },
+        { id: utilsService.getRandomId(), from: 'Itamar', subject: 'shishlik?', desc: 'shishlik is a very nice food', isRead: true, isImportant: false, sentAt: recivedTime },
+        { id: utilsService.getRandomId(), from: 'Itamar', subject: 'JS is fun', desc: 'JS is good for your health', isRead: true, isImportant: false, sentAt: recivedTime },
     ]
 }
 
@@ -39,6 +40,7 @@ function getEmails() {
 }
 
 function getById(emailId) {
+    // console.log(emailId);
     return getEmails()
         .then(emails => {
             return emails.find(email => {
@@ -54,6 +56,13 @@ function getById(emailId) {
 //         })
 
 // }
+function changeEmailImp(emailId) {
+    const emailToChangeIdx = gEmails.findIndex(email => email.id === emailId);
+    gEmails[emailToChangeIdx].isImportant = !gEmails[emailToChangeIdx].isImportant
+    utilsService.saveToStorage(EMAIL_INFO, gEmails)
+    return emailToChangeIdx
+}
+
 function changeIsRead(emailId) {
     const emailToChangeIdx = gEmails.findIndex(email => email.id === emailId);
     gEmails[emailToChangeIdx].isRead = !gEmails[emailToChangeIdx].isRead
@@ -77,6 +86,7 @@ function addEmail(to, subject, desc, from) {
         subject,
         to,
         desc,
+        isImportant: false,
         isRead: true,
         sentAt: recivedTime
     }

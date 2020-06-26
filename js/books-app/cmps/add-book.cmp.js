@@ -29,10 +29,7 @@ export default {
         },
         addBookToList(bookId) {
             console.log(this.bookList);
-
             this.bookToSave = this.bookList.find(book => bookId === book.id)
-
-
             booksService.addChosenBook(this.bookToSave)
             this.$emit('addBook')
         }

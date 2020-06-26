@@ -5,7 +5,7 @@ export default {
     props: ['emails'],
     template: `
     <ul  class="emails-list flex column no-list ">
-    <email-preview @changeIsRead="changeEmailIsRead"  @removeCurrEmail="removeCurrentEmail"   @click.native="selectEmail(email)"  v-for="email in emails" :email="email"  :key="email.id"></email-preview>
+    <email-preview @changeIsImportance="changeEmailImp" @changeIsRead="changeEmailIsRead"  @removeCurrEmail="removeCurrentEmail"   @click.native="selectEmail(email)"  v-for="email in emails" :email="email"  :key="email.id"></email-preview>
     </ul>`,
     components: {
         emailPreview
@@ -19,6 +19,9 @@ export default {
         },
         changeEmailIsRead(emailId) {
             this.$emit('emailToRead', emailId)
+        },
+        changeEmailImp(emailId) {
+            this.$emit('emailImpChange', emailId)
 
         }
     }

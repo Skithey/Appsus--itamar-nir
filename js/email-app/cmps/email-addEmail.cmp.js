@@ -13,10 +13,10 @@ export default {
     <button>X</button>
     </header>
    
-    <input v-model="from" type="text" placeholder="who are you?" >
-    <input v-model="emailToSend" type="text" placeholder="example@email.com">
-    <input v-model="emailSubject" type="text" placeholder="subject" >
-    <textarea v-model="emailDesc" ></textarea>
+    <input v-model="from" type="text" placeholder="Your mail?" >
+    <input v-model="emailToSend" type="text" placeholder="Send-to@email.com">
+    <input v-model="emailSubject" type="text" placeholder="Subject" >
+    <textarea v-model="emailDesc" placeholder="Your text.." ></textarea>
     <button class="submit-btn">Send</button>
     </form>
     </div>`,

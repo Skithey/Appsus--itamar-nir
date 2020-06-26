@@ -1,3 +1,4 @@
+import homePage from './main-homePage.js'
 import emailApp from './email-app/Pages/email-app.js'
 import notesApp from './notes-app/Pages/notes-app.js'
 import emailDetails from './email-app/Pages/email.details.cmp.js'
@@ -9,6 +10,10 @@ import booksList from './books-app/Pages/book-app.cmp.js'
 import booksAbout from './books-app/Pages/book-about.cmp.js'
 
 const myRoutes = [{
+        path: '/',
+        component: homePage
+    },
+    {
         path: '/email',
         component: emailApp
     },

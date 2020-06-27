@@ -10,6 +10,18 @@
     cursor: pointer;
 }
 
+
+/* .inbox-btn {
+    width: 169px;
+    height: 30px;
+}
+
+.compose-btn {
+    margin-left: 5px;
+    width: 169px;
+    height: 30px;
+} */
+
 .compose-btn:hover {
     background-color: mediumpurple;
     box-shadow: 4px 6px 16px -6px rgba(135, 135, 135, 0.75);

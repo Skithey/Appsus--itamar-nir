@@ -14,7 +14,7 @@ export default {
         <div class="email-section flex container row">
 
             <section class="filter-container flex column">
-            <div class="compose-inbox-container">
+            <div class="compose-inbox-container flex column">
             <button title="Send email" class="compose-btn" @click="isVisible = !isVisible">+ Compose</button>
             <button @click="AllEmails" class="inbox-btn flex space-between btn">
             <span>Inbox</span> 

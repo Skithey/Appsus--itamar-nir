@@ -105,7 +105,7 @@ body {
 /* MAIN CONTAINER */
 
 .main-container {
-    background-color: beige;
+    background-color: rgb(105, 24, 119);
 }
 
 .book-list {
@@ -118,7 +118,7 @@ body {
 }
 
 .book-preview {
-    background-color: rgba(105, 24, 119, 0.8);
+    background-color: rgb(216, 216, 216);
     color: rgb(15, 15, 58);
     padding: 20px;
     margin: 10px;
@@ -157,13 +157,13 @@ body {
 .search-header {
     text-align: center;
     font-size: 40px;
-    color: rgb(182, 182, 182);
+    color: wheat;
 }
 
 .search-input {
     font-size: 20px;
     padding: 5px;
-    margin-bottom: 10px;
+    margin-top: 20px;
     outline: none;
     border: 1px solid rgb(126, 126, 126);
     border-radius: 10px;
@@ -331,11 +331,12 @@ body {
 .home-page {
     /* font-size: 25px; */
     color: rgb(15, 15, 58);
-    background-color: beige;
+    background-color: rgb(105, 24, 119);
     margin-bottom: 20px;
 }
 
 .home-page h1 {
+    color: wheat;
     font-size: 50px;
     padding: 30px;
     margin-bottom: 100px;
@@ -354,7 +355,7 @@ body {
 }
 
 .side-bar {
-    background-color: rgb(141, 202, 192);
+    background-color: rgb(216, 216, 216);
     grid-column: 15/-1;
     grid-row: 1/5;
 }
@@ -409,7 +410,7 @@ body {
     grid-row: 8/9;
     grid-column: 7/16;
     font-size: 35px;
-    color: rgb(12, 12, 102);
+    color: wheat
 }
 
 .book-display {

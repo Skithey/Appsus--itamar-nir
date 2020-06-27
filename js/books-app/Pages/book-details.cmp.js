@@ -7,10 +7,9 @@ import { booksService } from '../services/book-service.js'
 export default {
     template: `
     <section class="book-container " v-if="book" >
-    <router-link to="/book">
+    <router-link to="/books/book+list">
     <button  class="X-btn" @click="close">X</button>
-    
-    </router-link> |
+    </router-link> 
 
     <div>
     <ul class="book-details">

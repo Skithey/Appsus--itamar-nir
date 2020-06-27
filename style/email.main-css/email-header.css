@@ -17,6 +17,23 @@
     background-color: rgb(105, 24, 119);
 }
 
+.head-full-logo {
+    z-index: 3;
+}
+
+.hamburger-btn {
+    /* position: absolute; */
+    outline: none;
+    right: 15px;
+    cursor: pointer;
+    visibility: hidden;
+    color: white;
+    font-size: 35px;
+    border: none;
+    background-color: rgb(105, 24, 119);
+    z-index: 3;
+}
+
 .email-btn {
     margin: 5px;
 }

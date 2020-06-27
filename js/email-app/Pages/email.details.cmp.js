@@ -2,7 +2,7 @@ import { emailsService } from '../services/email-service.js'
 
 export default {
     template: `
-<section class="email-container" v-if="email">
+<section class="email-container container" v-if="email">
 <div class="email-details-container" >
 <h2 class="email-details-container-h2">Email Details</h2>
 <ul class="email-details flex column space-between no-list">

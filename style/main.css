@@ -11,6 +11,7 @@
 @import './helpers.css';
 @import '/style/books-main-css/books.css';
 @import '/style/email.main-css/email-responsive-1200.css';
+@import '/style/email.main-css/home-page-responsivity.css';
 * {
     box-sizing: border-box;
 }
@@ -25,35 +26,34 @@ body {
 }
 
 .bgc-img {
-    text-align: center;
-    position: fixed;
+    /* text-align: center; */
     background-image: url("/img/horse-cover.png");
+    position: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 500px;
     width: 500px;
     top: 80px;
-    left: 32vw;
-    margin: 0 auto;
+    left: 35%;
+    /* margin: 0 auto; */
     z-index: -1;
 }
 
 .main-home-page-header {
     color: white;
-    position: relative;
-    text-align: center;
+    /* position: relative; */
+    /* text-align: center; */
     font-size: 100px;
     animation: mainHeaderAnimation .8s;
 }
 
 .home-page-txt {
-    position: absolute;
+    /* position: absolute; */
     /* bottom: -200px; */
-    left: 350px;
+    /* left: 350px; */
     font-size: 3rem;
     color: white;
-    text-align: center;
     margin-top: 23rem;
     animation: homepagetxtanm .8s;
 }

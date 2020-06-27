@@ -14,7 +14,7 @@ export default {
          <span class="msg-from" style="font-size:18px"> {{email.from}}  </span>
    
         <span class="msg-info ">
-        <span style="font-size:18px">  {{email.subject}} </span>-
+        <span class="email-subject-info" style="font-size:18px">  {{email.subject}} </span>-
         <span style="color:gray"> {{email.desc}}</span>
         </span>
         <span class="time-sent">{{email.sentAt}}</span> 

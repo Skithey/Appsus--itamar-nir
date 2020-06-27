@@ -4,8 +4,12 @@ import { notesService } from '../services/notes-service.js'
 export default {
     template: `
     <section class="editor-nav">
+    <label class="color-palette-btn btn ">
+    <i class="fas fa-palette"></i> 
     <input type="color" v-model="bgcColor" @input="changeBgcColor">
-    <button @click="removeNote">Delete</button>
+    </label>
+
+    <button class="btn" @click="removeNote">Delete</button>
     </section>
     `,
     props: ['note'],

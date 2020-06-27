@@ -1,14 +1,13 @@
 import editorNav from './editor-nav.cmp.js'
 export default {
 
+    // <textArea  v-bind:style="note.style" class="header-area flex column " ref="titleObj" :value="titleValue" @input="saveTitle" >{{info.txt}} </textArea>
     template: `
     
     <div class="note-todods" v-bind:style="note.style">
     <ul>
     <li v-for=" todo in info.todos">
-    <h2 v-if="info.title"> 
-    {{info.title}}
-    </h2>
+
     <p>{{todo.txt}}</p>
 
     </li>

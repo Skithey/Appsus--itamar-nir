@@ -7,35 +7,49 @@ import { notesService } from '../services/notes-service.js'
 
 export default {
     template: `
-    <div>
-    <h2>Notes-app</h2>
-    <form v-if="type==='NoteText'" class="add-section" @submit.prevent="addTextNote">
-    <input type="text" placeholder="Title" v-model="titleVal">
-    <input type="text" placeholder="Add a note here!" v-model="txtVal">
-    <button  >Add</button>
-    <br>
-    <br> 
-    </form>
-    <form v-if="type==='NoteImg'" @submit.prevent="addImgNote">
-    <input type="text" placeholder="Place img url here" v-model="imgUrl">
-    <button>Add</button>
-    <br>
-    <br> 
-    </form>
-    <form v-if="type==='NoteTodos'">
-    #work in progress#
-    <br>
-    <br> 
-    </form>
-    <button @click="ChangeTypeToImg">Add pic</button>
-    <button @click="ChangeTypeToTxt">Add text</button>
-    <button @click="ChangeTypeToTodos">Add list</button>
+    <div class="notes-page container ">
+    <h2 class="notepage-header">Notes-app</h2>
+
+    <form v-if="type==='NoteText'" class="add-section flex column  align-center" @submit.prevent="addTextNote">
+    <section class="note-btn-section">
+    <button class="note-style-btn btn" @click="ChangeTypeToImg">Add pic</button>
+    <button class="note-style-btn btn" @click="ChangeTypeToTxt">Add text</button>
+    <button class="note-style-btn btn" @click="ChangeTypeToTodos">Add list</button>
+    <label class="color-palette-btn btn ">
+    <i class="fas fa-palette"></i> 
     <input type="color" v-model="bgcColor" @input="changeAddedBgc">
+    </label>
+    </section>
+    
+    <input class="note-input"  type="text" placeholder="Title" v-model="titleVal">
+    <input class="note-input" type="text" placeholder="Add a note here!" v-model="txtVal">
+    
+    <button class="add-btn" >Add</button>
+    </form >
+    <form class="add-section flex column  align-center" v-if="type==='NoteImg'" @submit.prevent="addImgNote">
+  
+    <input class="img-input note-input" type="text" placeholder="Place img url here" v-model="imgUrl">
+    <button class="add-btn">Add</button>
+     
+    </form>
+    <form class="add-section flex column  align-center" v-if="type==='NoteTodos'">
+    <section class="note-btn-section">
+    <button class="note-style-btn btn" @click="ChangeTypeToImg">Add pic</button>
+    <button class="note-style-btn btn" @click="ChangeTypeToTxt">Add text</button>
+    <button class="note-style-btn btn" @click="ChangeTypeToTodos">Add list</button>
+    <input type="color" v-model="bgcColor" @input="changeAddedBgc">
+    </section>
+    
+    <br>
+    #work in progress#
+    
+    </form>
+    
 
 
    <section class="notes-container grid">
     <div  v-for=" note in notes" :key="note.id">
-        <component  @newColor="changeBgcColor"  @NewTxt="ChangeTxt" @sendNewNotes="renderNotes" :is="note.type" class="note" :note="note" :info="note.info" ></component>
+        <component  @newColor="changeBgcColor"  @NewTitle="changeTitle" @NewTxt="ChangeTxt" @sendNewNotes="renderNotes" :is="note.type" class="note" :note="note" :info="note.info" ></component>
     </div>
     </section>
 
@@ -69,8 +83,8 @@ export default {
     methods: {
         addTextNote() {
             this.noteToSave.type = this.type
-            this.noteToSave.title = this.titleVal
-            this.noteToSave.info.txt = this.txtVal
+            if (this.txtVal) this.noteToSave.info.txt = this.txtVal
+            if (this.titleVal) this.noteToSave.info.title = this.titleVal
             console.log(this.noteToSave);
 
             notesService.addNote(this.noteToSave)
@@ -104,6 +118,13 @@ export default {
 
                 })
 
+        },
+        changeTitle(newTitle, noteId) {
+            notesService.getById(noteId)
+                .then(noteIdx => {
+                    notesService.addTitleToNote(newTitle, noteIdx)
+                    this.notes[noteIdx].info.title = newTitle
+                })
         },
         changeBgcColor(newColor, noteId) {
             notesService.getById(noteId)

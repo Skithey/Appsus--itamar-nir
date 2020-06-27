@@ -38,8 +38,24 @@
 
 .importance-checkbox {
     position: absolute;
-    width: 135px;
-    height: 16px;
+    width: 169px;
+    height: 35px;
     opacity: 0;
     cursor: pointer;
+}
+
+.stared-btn {
+    width: 169px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    padding: 0;
+    background-color: rgb(15, 15, 58);
+    color: beige;
+}
+
+.stared-btn span {
+    padding: 10px;
 }

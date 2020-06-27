@@ -34,18 +34,18 @@ export default {
             email: null,
         }
     },
-    // created() {
-    //     const { emailId } = this.$route.params;
-    //     // console.log(emailId);
-    //     emailsService.getById(emailId)
-    //         .then(email => {
-    //             // console.log(email, emailId);
-    //             // email.isRead = false
-    //             this.email = email;
-    //             // console.log(this.email);
-    //             setTimeout(() => {
-    //                 this.$emit('sendReadType', this.email)
-    //             }, 500)
-    //         })
-    // },
+    created() {
+        const { emailId } = this.$route.params;
+        // console.log(emailId);
+        emailsService.getById(emailId)
+            .then(email => {
+                // console.log(email, emailId);
+                // email.isRead = false
+                this.email = email;
+                // console.log(this.email);
+                setTimeout(() => {
+                    this.$emit('sendReadType', this.email)
+                }, 500)
+            })
+    },
 }

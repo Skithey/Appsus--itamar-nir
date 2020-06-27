@@ -14,6 +14,8 @@
 @import './email.main-css/home-page-responsivity.css';
 @import './notes-css/notes-responsive-1200.css';
 @import './notes-css/notes-responsive-750.css';
+@import './books-main-css/books-responsive.1200.css';
+@import './books-main-css/books-responsive.750.css';
 * {
     box-sizing: border-box;
 }

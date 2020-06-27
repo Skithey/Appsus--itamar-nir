@@ -1,7 +1,6 @@
 export default {
     template: `
-<form v-on:submit.prevent="filter">
-<h2 class="search-header">Search!</h2>
+<form v-on:submit.prevent="filter" class="filter-inputs flex column align-center">
 <input class="search-input" type="text" placeholder="which book?" v-model="filterBy.searchStr"/>
 <input class="search-input-price"  type="number" placeholder="from price?" v-model.number="filterBy.fromPrice"  />
 <input class="search-input-price"  type="number" placeholder="to price?" v-model.number="filterBy.toPrice" />

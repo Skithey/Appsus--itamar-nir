@@ -68,7 +68,7 @@ body {
 }
 
 .main-books-container {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     background-color: rgba(255, 255, 255, 0.3);
 }
 
@@ -78,66 +78,32 @@ body {
 .bookpage-header {
     font-size: 55px;
     color: rgb(105, 24, 119);
-    margin: 10px auto;
+    /* margin: 10px auto; */
     margin-top: 20px;
-    text-align: center;
+    /* text-align: center; */
     border-bottom: 1px solid gray;
     padding-bottom: 10px;
-}
-
-.header {
-    background-color: rgb(24, 24, 70);
-    /* padding: 20px; */
-    margin-bottom: 15px;
-}
-
-.headline {
-    color: beige;
-    font-size: 3rem;
-}
-
-.nav-btn:not(:last-child) {
-    border-right: 1px solid black;
-    color: beige;
-    text-decoration: none;
-    font-size: 1.3rem;
-    /* padding: 48px 40px; */
-}
-
-.router-link-exact-active {
-    color: pink;
-    /* font-size: 1.7rem; */
-}
-
-.nav-btn:hover {
-    opacity: 0.7;
-}
-
-.nav-bar {
-    color: rgb(170, 170, 170);
 }
 
 
 /* MAIN CONTAINER */
 
-.main-container {
-    background-color: rgb(105, 24, 119);
-}
-
 .book-list {
     grid-template-columns: repeat(3, 320px);
     grid-template-rows: repeat(7, 400px);
     list-style: none;
-    padding: 0;
-    text-align: center;
-    margin: 0 5px
+    row-gap: 5px;
+    column-gap: 5px;
+    /* padding: 0; */
+    /* text-align: center; */
+    /* margin: 0 5px */
 }
 
 .book-preview {
     background-color: rgb(162, 151, 211);
     color: rgb(15, 15, 58);
     padding: 20px;
-    margin: 10px;
+    /* margin: 10px; */
     /* height: 300px;
     width: 210px; */
     border-radius: 12px;
@@ -340,129 +306,6 @@ body {
 }
 
 
-/* HOME PAGE */
-
-.home-page {
-    /* font-size: 25px; */
-    color: rgb(15, 15, 58);
-    background-color: rgb(105, 24, 119);
-    margin-bottom: 20px;
-}
-
-.home-page h1 {
-    color: wheat;
-    font-size: 50px;
-    padding: 30px;
-    margin-bottom: 100px;
-}
-
-.main-area-container {
-    grid-template-columns: repeat(21, 38px);
-    grid-template-rows: repeat(15, 90px);
-    row-gap: 10px;
-    column-gap: 15px;
-}
-
-.bar-container {
-    padding: 20px;
-    border-radius: 4px;
-}
-
-.side-bar {
-    background-color: rgb(216, 216, 216);
-    grid-column: 15/-1;
-    grid-row: 1/5;
-}
-
-.side-bar p {
-    margin-bottom: 40px;
-    color: rgb(88, 75, 146);
-}
-
-.side-bar h2 {
-    font-size: 35px;
-    color: rgb(14, 14, 66);
-}
-
-.main-img {
-    grid-column: 1/15;
-    grid-row: 1/5;
-}
-
-.main-img img {
-    width: 100%;
-    height: 100%;
-}
-
-.read-more-homepage {
-    width: 90px;
-}
-
-.mid-container {
-    background-color: rgb(216, 216, 216);
-    color: rgb(14, 14, 66);
-    grid-row: 5/7;
-    grid-column: 1/-1;
-}
-
-.mid-container span {
-    text-decoration: underline;
-    color: rgb(114, 99, 180);
-}
-
-.mid-container span:hover {
-    cursor: pointer;
-    color: rgb(63, 33, 195);
-}
-
-.mid-container p {
-    margin: 0 6px 0 0;
-}
-
-.book-display-header {
-    text-align: center;
-    grid-row: 8/9;
-    grid-column: 7/16;
-    font-size: 35px;
-    color: wheat
-}
-
-.book-display {
-    background-color: rgb(155, 215, 235);
-    font-size: 25px;
-    font-weight: 700;
-    color: rgb(89, 149, 153);
-    opacity: 0.4;
-}
-
-.book-display:hover {
-    opacity: 0.8;
-    transition: .2s;
-}
-
-.book-display1 {
-    grid-row: 9/14;
-    grid-column: 1/8;
-}
-
-.book-display2 {
-    grid-row: 9/14;
-    grid-column: 8/15;
-}
-
-.book-display3 {
-    grid-row: 9/14;
-    grid-column: 15/-1;
-}
-
-.footer {
-    background-color: rgb(24, 24, 70);
-    height: 120px;
-    width: 100%;
-    color: rgb(207, 207, 196);
-}
-
-
 /* REVIEW PAGE */
 
 .review-container {
@@ -491,111 +334,4 @@ body {
 
 .review-form h1 {
     color: rgb(14, 14, 66);
-}
-
-
-/* ABOUTAPGE */
-
-.about-container {
-    background-color: beige;
-    /* height: 100vh; */
-    margin-bottom: 20px;
-}
-
-.about-container h1 {
-    text-align: center;
-    color: rgb(14, 14, 66);
-    font-weight: 800;
-}
-
-.about-container p {
-    width: 800px;
-}
-
-.about-container img {
-    /* background-color: red;
-    height: 300px;
-    width: 300px; */
-    border-radius: 50%;
-}
-
-.info-section {
-    /* width: 100px; */
-    margin-bottom: 500px;
-}
-
-.info-section h2 {
-    color: rgb(11, 56, 58);
-}
-
-.info-section p {
-    color: rgb(91, 134, 136);
-}
-
-.dream-bar {
-    text-align: center;
-    position: absolute;
-    height: 240px;
-    width: 100%;
-    background-color: black;
-    opacity: 0.5;
-    color: rgb(192, 162, 162);
-    left: 0;
-    top: 500px;
-    margin-bottom: 20px;
-}
-
-.dream-bar p {
-    text-align: start;
-    font-size: 20px;
-    opacity: 0.5;
-}
-
-.dream-bar span {
-    opacity: 0.5;
-}
-
-.the-sum {
-    margin: 0 auto;
-}
-
-.the-sum h2 {
-    text-align: center;
-    color: rgb(14, 14, 66);
-}
-
-.last-para {
-    /* font-size: 15px; */
-    max-width: 800px;
-    margin-bottom: 70px;
-    color: rgb(44, 103, 122);
-}
-
-.social-btns {
-    margin-bottom: 30px;
-}
-
-.soc-btn {
-    font-weight: 600;
-    margin: 5px;
-    height: 30px;
-    width: 30px;
-    border: none;
-    outline: none;
-    background-color: rgb(168, 240, 228);
-    border-radius: 7px;
-}
-
-.soc-btn:hover {
-    background-color: rgb(48, 129, 116);
-    transition: .2s;
-}
-
-.text-area {
-    border-radius: 10px;
-    font-size: 20px;
-}
-
-.fas {
-    color: blue;
 }

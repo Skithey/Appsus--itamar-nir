@@ -3,7 +3,7 @@ import { emailsService } from '../services/email-service.js'
 export default {
     template: `
     <section class="email-filter flex column" >
-    <button class="flex space-between btn"> 
+    <button class=" flex space-between  stared-btn"> 
                 <span> Starred</span>
                 <span>
                 <i class="far fa-star" :class="{importance:filterBy.byIsImportance}"></i>

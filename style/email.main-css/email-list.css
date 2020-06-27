@@ -15,7 +15,7 @@
 
 .email-row:hover {
     border: 1px solid gray;
-    box-shadow: 4px 6px 16px -5px rgba(135, 135, 135, 0.75);
+    box-shadow: 4px 6px 16px -5px rgba(135, 135, 135, 0.883);
 }
 
 .emails-container {

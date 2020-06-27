@@ -16,15 +16,45 @@
 
 body {
     margin: 0;
-    background-color: rgb(233, 223, 223);
+}
+
+.main-appsus-logo {
+    color: white;
+    font-size: 35px;
+}
+
+.bgc-img {
+    text-align: center;
+    position: fixed;
+    background-image: url("/img/horse-cover.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    width: 500px;
+    top: 80px;
+    left: 32vw;
+    margin: 0 auto;
+    z-index: -1;
 }
 
 .main-home-page-header {
-    color: purple;
+    color: white;
     position: relative;
     text-align: center;
     font-size: 100px;
     animation: mainHeaderAnimation .8s;
+}
+
+.home-page-txt {
+    position: absolute;
+    /* bottom: -200px; */
+    left: 350px;
+    font-size: 3rem;
+    color: white;
+    text-align: center;
+    margin-top: 23rem;
+    animation: homepagetxtanm .8s;
 }
 
 @keyframes mainHeaderAnimation {
@@ -33,5 +63,14 @@ body {
     }
     to {
         left: 0;
+    }
+}
+
+@keyframes homepagetxtanm {
+    from {
+        left: -1000px;
+    }
+    to {
+        left: 350px
     }
 }

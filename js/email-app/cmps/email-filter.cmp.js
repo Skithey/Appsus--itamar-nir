@@ -3,6 +3,13 @@ import { emailsService } from '../services/email-service.js'
 export default {
     template: `
     <section class="email-filter flex column" >
+    <button class="flex space-between btn"> 
+                <span> Starred</span>
+                <span>
+                <i class="far fa-star" :class="{importance:filterBy.byIsImportance}"></i>
+                </span>
+                <input class="importance-checkbox"  type="checkbox" v-model="filterBy.byIsImportance" @change="filter">
+                </button>
     <input type="text" placeholder="Filter by text" v-model="filterBy.byTxt" @input="filter"/>
     <select class="select-filter" v-model="filterBy.byIsRead" @change="filter">
     <option value="all">All</option>
@@ -12,31 +19,28 @@ export default {
     <button class="clear-btn btn" @click="clearFilters"> Clear </button>
     </section>
     `,
-    // <input type="checkbox"  v-model="filterBy.byIsRead" @input="filter"/>
     data() {
         return {
             filterBy: {
                 byTxt: null,
-                byIsRead: 'all'
+                byIsRead: 'all',
+                byIsImportance: false
             }
         }
     },
     methods: {
         filter() {
-            // console.log(this.filterBy.byTxt);
             this.$emit('filter', this.filterBy);
         },
         clearFilters() {
             this.filterBy = {
                 byTxt: '',
-                byIsRead: ''
+                byIsRead: '',
+                byIsImportance: false
+
             };
             this.$emit('filter', this.filterBy);
         }
 
     },
 }
-// <div>Inbox</div>
-// <div>Starred</div>
-// <div>Sent Mail</div>
-// <div>Drafts</div>

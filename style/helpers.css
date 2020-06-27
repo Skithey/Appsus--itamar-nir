@@ -70,6 +70,10 @@
     /* animation: toptobottom .5s; */
 }
 
+.opacity {
+    opacity: 0;
+}
+
 
 /* @keyframes toptobottom {
     from {

@@ -9,7 +9,7 @@ export default {
     template: `
     <div class="email-container ">
 
-        <h2 class="email-main-header"> email-app</h2>
+        <h2 class="email-main-header"> Sus-mail</h2>
 
         <div class="flex container">
 
@@ -19,6 +19,7 @@ export default {
                 <span>Inbox</span> 
                 <span>{{emailsToRead}}</span> 
                 </button>
+                
                 <div  class="new-mail fixed" :class="{visible:isVisible}">
                     <add-email  @sendEmail="addEmail"></add-email>
                 </div>
@@ -68,6 +69,7 @@ export default {
         },
         setFilter(filterBy) {
             this.filterBy = filterBy
+                // console.log(this.filterBy);
         },
         addEmail(to, subject, desc, from) {
             this.isVisible = !this.isVisible
@@ -78,12 +80,20 @@ export default {
         },
         AllEmails() {
             this.filterBy = {
-                byTxt: null,
-                byIsRead: 'all'
-            }
-            let selectVal = document.querySelector('.select-filter').value
-            selectVal = this.filterBy.byIsRead
-        }
+                    byTxt: null,
+                    byIsRead: 'all'
+                }
+                // let selectVal = document.querySelector('.select-filter').value
+                // selectVal = this.filterBy.byIsRead
+        },
+        // filterByImportance() {
+        //     this.filterBy = {
+        //         byTxt: null,
+        //         byIsRead: 'all',
+        //         byImportance: true
+        //     }
+
+        // }
     },
     created() {
         emailsService.getEmails()
@@ -98,8 +108,10 @@ export default {
     computed: {
         emailsToShow() {
             if (!this.filterBy) return this.emails
+            if (this.filterBy.byIsImportance) return this.emails.filter(email => {
+                return email.isImportant
+            })
             if (this.filterBy.byTxt) {
-
                 let filteredEmails = this.emails.filter(email => {
                     return email.desc.toLowerCase().includes(this.filterBy.byTxt.toLowerCase())
                 })
@@ -112,6 +124,8 @@ export default {
             if (this.filterBy.byIsRead === 'unread') return this.emails.filter(email => {
                 if (!email.isRead) return email
             })
+
+
         },
         emailId() {
             return this.$route.params.emailId

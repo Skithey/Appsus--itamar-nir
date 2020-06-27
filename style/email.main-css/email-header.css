@@ -27,12 +27,13 @@
 }
 
 .fas {
-    background-color: beige;
+    /* background-color: beige; */
     color: beige;
 }
 
 .email-main-header {
-    color: mediumpurple;
+    font-size: 55px;
+    color: rgb(105, 24, 119);
     margin: 10px auto;
     margin-top: 20px;
     text-align: center;

@@ -2,7 +2,7 @@ import { emailsService } from '../services/email-service.js'
 
 export default {
     template: `
-    <section class="email-filter flex column align-center" >
+    <section class="email-filter " >
     <button class=" flex space-between  stared-btn"> 
     <span> Starred</span>
     <span>

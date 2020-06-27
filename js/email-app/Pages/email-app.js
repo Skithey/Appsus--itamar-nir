@@ -11,7 +11,7 @@ export default {
 
         <h2 class="email-main-header"> Sus-mail</h2>
 
-        <div class="email-section flex container column">
+        <div class="email-section flex container row">
 
             <section class="filter-container flex column">
             <div class="compose-inbox-container">

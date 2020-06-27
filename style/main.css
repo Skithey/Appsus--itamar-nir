@@ -10,6 +10,7 @@
 @import './notes-css/notes-editor.css';
 @import './helpers.css';
 @import '/style/books-main-css/books.css';
+@import '/style/email.main-css/email-responsive-1200.css';
 * {
     box-sizing: border-box;
 }

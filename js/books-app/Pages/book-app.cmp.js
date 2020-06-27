@@ -9,18 +9,8 @@ import { utilsService } from '../../utils/utils-service.js'
 export default {
     template: `
     <div>
-    <header class="header">
-    <div class="container flex align-center space-between">
-    <h1 class="headline ">Awesome Book-Shop</h1>
-    <nav class="nav-bar">
-    <router-link to="/books/homePage" class="nav-btn">Home Page</router-link> |
-    <router-link to="/books/book+list" class="nav-btn">Book List</router-link> |
-    <router-link to="/books/about" class="nav-btn">About us</router-link> 
-    </nav>
-    </div>
-    </header>
-    <router-view />
-    <main class="main-container container flex column align-center" >
+    <main class="main-books-container container flex column align-center" >
+    <h2 class="bookpage-header">Sus-Books</h2>
     <add-book @addBook="renderList"> </add-book> 
     <section class="filter-container">
     <book-filter @filter="setFilter"></book-filter>

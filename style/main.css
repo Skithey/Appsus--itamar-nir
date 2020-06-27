@@ -13,6 +13,7 @@
 @import './email.main-css/email-responsive-1200.css';
 @import './email.main-css/home-page-responsivity.css';
 @import './notes-css/notes-responsive-1200.css';
+@import './notes-css/notes-responsive-750.css';
 * {
     box-sizing: border-box;
 }

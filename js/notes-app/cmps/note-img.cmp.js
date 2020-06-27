@@ -7,7 +7,7 @@ export default {
     template: `
     
     <div class="note-img" v-bind:style="note.style">
-     <textArea  v-bind:style="note.style" class="header-area flex column " ref="titleObj" :value="titleValue" @input="saveTitle" >{{info.txt}} </textArea>
+     <textArea  v-bind:style="note.style" class="header-area flex column " ref="titleObj" :value="titleValue" @input="saveTitle" >{{info.title}} </textArea>
 
     <img v-bind:src="info.url" >
     <editor-nav @getColor="changeBgcColor" :note="note"></editor-nav>
@@ -33,7 +33,7 @@ export default {
             let value = this.$refs.titleObj.value;
 
 
-            this.$emit('newTitle', value, this.note.id)
+            this.$emit('newImgTitle', value, this.note.id)
         },
     }
 

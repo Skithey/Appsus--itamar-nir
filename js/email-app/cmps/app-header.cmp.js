@@ -14,9 +14,9 @@ export default {
    <button  @click="toggleMenu"  class="hamburger-btn">☰</button>
    </div>
     <div class="routs-container flex space-between">
-    <router-link @click.native="toggleMenu() + makeBgiVisible()" class="nav-btn underline no-list router-a" to="/email"> Email </router-link> 
-    <router-link @click.native="toggleMenu() + makeBgiVisible()" class="nav-btn underline no-list router-a" to="/notes"> Notes </router-link> 
-    <router-link @click.native="makeBgiNone() + toggleMenu()" class="nav-btn underline no-list router-a" to="/books/homePage"> Books </router-link>
+    <router-link @click.native="toggleMenu() " class="nav-btn underline no-list router-a" to="/email"> Email </router-link> 
+    <router-link @click.native="toggleMenu()" class="nav-btn underline no-list router-a" to="/notes"> Notes </router-link> 
+    <router-link @click.native="toggleMenu()" class="nav-btn underline no-list router-a" to="/books"> Books </router-link>
     </div>
     </nav>
    </header>`,

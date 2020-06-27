@@ -67,8 +67,23 @@ body {
     transition: .2s;
 }
 
+.main-books-container {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
 
 /* HEADER */
+
+.bookpage-header {
+    font-size: 55px;
+    color: rgb(105, 24, 119);
+    margin: 10px auto;
+    margin-top: 20px;
+    text-align: center;
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+}
 
 .header {
     background-color: rgb(24, 24, 70);
@@ -119,7 +134,7 @@ body {
 }
 
 .book-preview {
-    background-color: rgb(216, 216, 216);
+    background-color: rgb(162, 151, 211);
     color: rgb(15, 15, 58);
     padding: 20px;
     margin: 10px;
@@ -222,14 +237,12 @@ body {
 }
 
 .book-container {
+    margin-top: 20px;
     position: relative;
-    border: 1px solid;
+    /* border: 1px solid; */
     padding: 10px;
     margin-bottom: 20px;
-}
-
-.book-container {
-    background-color: beige;
+    background-color: rgba(255, 255, 255, 0.308);
 }
 
 .book-details {

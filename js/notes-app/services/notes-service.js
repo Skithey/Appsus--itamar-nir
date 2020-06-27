@@ -29,8 +29,9 @@ function getDefNotes() {
             type: "NoteText",
             isPinned: true,
             info: {
-                url: "../../../img/pug.jpg",
-                txt: "Fullstack Me Baby!"
+                url: '',
+                txt: "Fullstack Me Baby!",
+                title: 'Oh yeah'
             },
             style: {
                 backgroundColor: "#ffff"
@@ -120,6 +121,8 @@ function removeNote(noteToRemove) {
 
 function getById(noteId) {
     const note = gNotes.findIndex(note => {
+        // console.log(note);
+
         return note.id === noteId
     })
 
@@ -135,6 +138,8 @@ function addTxtToNote(newTxt, noteIdx) {
 
 function addTitleToNote(newTitle, noteIdx) {
     gNotes[noteIdx].info.title = newTitle
+    console.log('in service', gNotes[noteIdx]);
+
     utilsService.saveToStorage('NOTES', gNotes)
 
 

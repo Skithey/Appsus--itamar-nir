@@ -3,7 +3,7 @@ import editorNav from './editor-nav.cmp.js'
 export default {
     template: `
     <div  class="note-txt" v-bind:style="note.style">
-    <textArea  v-bind:style="note.style" class="header-area flex column " ref="titleObj" :value="titleValue" @input="saveTitle" >{{info.txt}} </textArea>
+    <textArea  v-bind:style="note.style" class="header-area flex column " ref="titleObj" :value="titleValue" @input="saveTitle" >{{info.title}} </textArea>
 
   
     <textArea  v-bind:style="note.style" class="note-text-area flex column " ref="textAreaObj" :value="txtValue" @input="saveTxt" >{{info.txt}} 
@@ -27,16 +27,19 @@ export default {
             this.$emit('sendNewNotes', newNotes)
         },
         saveTxt() {
-            let value = this.$refs.textAreaObj.value;
+            let txtValue = this.$refs.textAreaObj.value;
+            console.log(this.txtValue);
 
 
-            this.$emit('NewTxt', value, this.note.id)
+            this.$emit('NewTxt', txtValue, this.note.id)
         },
         saveTitle() {
-            let value = this.$refs.titleObj.value;
+
+            let titleValue = this.$refs.titleObj.value;
+            console.log('urf');
 
 
-            this.$emit('newTitle', value, this.note.id)
+            this.$emit('newTitle', titleValue, this.note.id)
         },
         changeBgcColor(newColor) {
             this.note.style.backgroundColor = newColor

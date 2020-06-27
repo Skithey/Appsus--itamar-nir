@@ -7,7 +7,7 @@ import addEmail from '../cmps/email-addEmail.cmp.js';
 
 export default {
     template: `
-    <div class="email-container ">
+    <div class="email-container container">
 
         <h2 class="email-main-header"> Sus-mail</h2>
 

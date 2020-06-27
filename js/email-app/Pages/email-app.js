@@ -11,14 +11,16 @@ export default {
 
         <h2 class="email-main-header"> Sus-mail</h2>
 
-        <div class="flex container">
+        <div class="email-section flex container column">
 
             <section class="filter-container flex column">
-                <button title="Send email" class="compose-btn" @click="isVisible = !isVisible">+ Compose</button>
-                <button @click="AllEmails" class="inbox-btn flex space-between btn">
-                <span>Inbox</span> 
-                <span>{{emailsToRead}}</span> 
-                </button>
+            <div class="compose-inbox-container">
+            <button title="Send email" class="compose-btn" @click="isVisible = !isVisible">+ Compose</button>
+            <button @click="AllEmails" class="inbox-btn flex space-between btn">
+            <span>Inbox</span> 
+            <span>{{emailsToRead}}</span> 
+            </button>
+            </div>
                 
                 <div  class="new-mail fixed" :class="{visible:isVisible}">
                     <add-email  @sendEmail="addEmail"></add-email>

@@ -1,0 +1,8 @@
+@media (max-width:1200px) {
+    .container {
+        max-width: 690px;
+    }
+    .email-subject {
+        width: 500px;
+    }
+}

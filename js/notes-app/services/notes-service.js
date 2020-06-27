@@ -8,6 +8,7 @@ export const notesService = {
     removeNote,
     getById,
     addTxtToNote,
+    addTitleToNote,
     changeNoteBgc
 }
 
@@ -97,8 +98,8 @@ function getNoteForm() {
         isPinned: true,
         info: {
             url: '',
-            title: '',
-            txt: ''
+            title: 'Title here',
+            txt: 'Txt here'
         },
         style: {
             backgroundColor: "#ffff"
@@ -127,6 +128,13 @@ function getById(noteId) {
 
 function addTxtToNote(newTxt, noteIdx) {
     gNotes[noteIdx].info.txt = newTxt
+    utilsService.saveToStorage('NOTES', gNotes)
+
+
+}
+
+function addTitleToNote(newTitle, noteIdx) {
+    gNotes[noteIdx].info.title = newTitle
     utilsService.saveToStorage('NOTES', gNotes)
 
 

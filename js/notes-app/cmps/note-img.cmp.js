@@ -7,15 +7,15 @@ export default {
     template: `
     
     <div class="note-img" v-bind:style="note.style">
-    <h2 v-if="info.title"> 
-    {{info.title}}
-    </h2>
+     <textArea  v-bind:style="note.style" class="header-area flex column " ref="titleObj" :value="titleValue" @input="saveTitle" >{{info.txt}} </textArea>
+
     <img v-bind:src="info.url" >
     <editor-nav @getColor="changeBgcColor" :note="note"></editor-nav>
     </div>`,
     props: ['info', 'note'],
     data() {
         return {
+            titleValue: '',
             bgc: ''
         }
     },
@@ -28,7 +28,13 @@ export default {
             this.note.style.backgroundColor = newColor
             this.$emit('newColor', newColor, this.note.id)
 
-        }
+        },
+        saveTitle() {
+            let value = this.$refs.titleObj.value;
+
+
+            this.$emit('newTitle', value, this.note.id)
+        },
     }
 
 
